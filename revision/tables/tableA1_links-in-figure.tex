@@ -1,0 +1,45 @@
+% ---------------------------------------------------------------------------
+% Table A1 --- the three coincidences sketched in Figure 1 (labor-market axis).
+% Split out of the single Appendix A table on the author's 2026-10-22 request
+% (##AG line 54): the figure-side rows first, because Figure 1 precedes Table 4.
+% Rows keep the author's order and wording; repairs are typographical only
+% (eta_s -> eta_{s,i} in the corner row, "as a assuming" -> "as assuming",
+% "labor qunatities" -> "labor quantities", stray "allocation" deleted).
+% Columns, status labels and their reading are unchanged.
+% ---------------------------------------------------------------------------
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{3.3cm}
+                  >{\raggedright\arraybackslash}p{5.5cm}
+                  >{\raggedright\arraybackslash}p{2.1cm}
+                  >{\raggedright\arraybackslash}p{2.8cm}@{}}
+\toprule
+Link & Mechanism & Status & Left unidentified \\
+\midrule
+Full reallocation $\Leftrightarrow$ standard CGE
+& The converse case of no-reallocation with $\eta = 1$ exactly represents the allocation rule the standard CGE closure imposes.
+& definitional
+& ---  \\[3pt]
+Standard CGE $\Leftrightarrow$ single-wage elastic supply
+& With the real wage at its anchor, the elastic labor supply curve and the full-employment solution give the same equation at every supply elasticity and under every financing rule.
+& derivable (see below)
+& the single-wage supply elasticity \\[3pt]
+No reallocation $\Leftrightarrow$ the rigid corner of the sectoral family
+& An infinitely inelastic supply curve ($\eta_s=0$) with sectoral wages gives the same results as assuming sectorally frozen labor quantities ($\eta=0$), albeit with a different rationale.
+& exact by construction
+& ---  \\[3pt]
+Elastic labor supply $\rightarrow$ employment adjustment
+& Under demand-only shocks, as $\eta_s\to\infty$ the supply curves flatten, prices return to the baseline and the real wage to its anchor; the family converges to the employment-adjustment allocation except for the net external transfer, which adjusts there and is fixed at zero here.
+& limit, attained at a different transfer
+& the transfer $F$ \\
+\bottomrule
+\end{tabular}
+\caption{Links among the labor-market closures that Figure~\ref{fig:flexibility-map} sketches, the mechanism behind each, their
+logical status, and the parameter each leaves unidentified. The last line is
+the boundary case: a limit rather than an identity, and one that lands beside
+the closure rather than on it.}
+\label{tab:equiv-links}
+\end{table}

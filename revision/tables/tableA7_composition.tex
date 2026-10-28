@@ -1,0 +1,46 @@
+% Table C composition -- the program's bill and the output it calls forth.
+% Computed from data/I-O_DE2019_formatiert.csv (label lookup) and
+% data/impulses.csv (2024 row); the result is reproducible from the code base.
+% Canary: max |(I-P)y - (y-Zrow)| = 3.64e-12
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrr}
+\toprule
+ & EUR m & share \\
+\midrule
+\multicolumn{3}{l}{\emph{A. The program's bill at purchasers' prices}}\\
+imported final use & $7{,}176$ & $17.8$ \\
+product taxes & $3{,}494$ & $8.7$ \\
+domestic production & $29{,}630$ & $73.5$ \\
+\emph{program} & $40{,}300$ & $100.0$ \\
+\midrule
+\multicolumn{3}{l}{\emph{B. The induced gross output, by cost structure}}\\
+domestic intermediates & $22{,}814$ & $43.5$ \\
+imported intermediates & $6{,}817$ & $13.0$ \\
+product taxes on intermediate use & $337$ & $0.6$ \\
+value added & $22{,}477$ & $42.9$ \\
+\emph{induced gross output} & $52{,}445$ & $100.0$ \\
+\midrule
+\multicolumn{3}{l}{\emph{C. Totals per euro of program spending}}\\
+imports{,} direct and embodied & $13{,}993$ & $0.35$ \\
+product taxes{,} on the bill and on intermediates & $3{,}830$ & $0.10$ \\
+value added generated & $22{,}477$ & $0.56$ \\
+induced gross output & $52{,}445$ & $1.30$ \\
+\bottomrule
+\end{tabular}
+\caption{The program's spending in two decompositions and a totals panel. Panel A decomposes the
+program itself and sums to its size. Panel B decomposes the gross output it
+calls forth and sums to that output; the split is the sectoral column identity
+of the table, so it closes exactly. Panel C reports totals per euro of program
+spending: $0.35$ euro leaves the economy as direct and embodied
+imports, $0.10$ euro is product taxes and $0.56$ euro is
+value added generated, which accounts for the euro, up to rounding. The fourth row,
+induced gross output of $1.30$ euro per euro of program, is a different object ---
+gross output counts the same euro again at each stage of the chain --- so value added is
+$0.43$ euro per euro of \emph{induced} output. The
+import share of the bill in panel A is an assumption, not a datum: the published
+table reports imported final use by final-demand category only, so the program
+inherits the import and tax shares of the investment columns.}
+\label{tab:pipeline-composition}
+\end{table}

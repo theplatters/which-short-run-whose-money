@@ -1,0 +1,58 @@
+% =====================================================================
+% Table 5 --- Candidate aggregate measures
+% ---------------------------------------------------------------------
+% Spec: one row per measure; the columns are
+%   (a) what it measures, (b) when it is the faithful representation,
+%   (c) how it treats public spending.
+% Rows: real GDP (income-side), the Tornqvist consumption index, the exact
+%       CES money-metric of consumption, the CES final-demand index on c+g,
+%       and the leisure-augmented measure.
+% Nothing here is hand-typed: the reported values come from the run manifests
+% and, for the final-demand index, from the calibration basket.
+%
+% CORRECTION 2026-10-16 (proposals/45-welfare-indices.md v3): the
+% final-demand index (row 4) is a CES AGGREGATE, not the value ratio. The two
+% agree only when the basket grows proportionally, which the c+g basket does
+% not --- the programme moves seven sectors --- so they differ at first order
+% and the sign can flip. sigma is the whole content of that row.
+% =====================================================================
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.85cm}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{4.3cm}@{}}
+\toprule
+\textbf{Measure} & \textbf{What it measures} & \textbf{Faithful representation} & \textbf{How it treats public spending} \\
+\midrule
+Real GDP\newline \scriptsize (income-side)
+& The wage bill $w\sum_i L_i$ deflated by a seven-component T\"ornqvist price index of final demand.
+& Every closure, cell by cell; flat by construction in the full-employment mobile rows.
+& Counts $g^G$ and the program as final demand --- it records output, not welfare. \\
+Consumption\newline \scriptsize (T\"ornqvist)
+& A T\"ornqvist quantity index of the household consumption bundle against its baseline.
+& Wherever the basket grows proportionally --- which the consumption block does whenever prices are pinned. Elsewhere its gap to the exact measure is of higher order.
+& Only through the household budget: a tax-financed program lowers $E^h$; the bundle itself is not valued. \\
+Consumption\newline \scriptsize (exact money-metric)
+& $E^h/\mathcal{P}(p)$, the change in real consumption expenditure. Exact to all orders for the CES household, and equal to the quantity index because $\mathcal{P}(p)=1$ is the numeraire.
+& Every closure. It departs from the T\"ornqvist index only where the consumption basket leaves proportional growth --- in practice under the F1 preference shifter, where neither is a utility comparison.
+& Only through the household budget and the price index; as silent on the valuation of public goods as the index above. \\
+Final demand $c+g$\newline \scriptsize (CES aggregate)
+& A CES quantity aggregate over household consumption and public absorption including the program, with baseline quantity weights and $\sigma=0.9$.
+& The F2 and F3 program cells \emph{only}. It is \emph{not} the value ratio: for a basket that does not grow proportionally the two differ at first order and the sign can flip. $\sigma$ is the whole content of this row, not an irrelevance. Under F1 it is not reported: the preference tilt replaces the aggregator's own weights, so the index has no utility foundation and scores the intended reallocation as a loss.
+& Values public absorption at cost, with unit weight. A stance rather than an implication: public demand is exogenous here, so nothing in the kernel makes it welfare-relevant. \\
+Leisure-augmented\newline \scriptsize (first order)
+& The bundle of the row above less the value of the additional work, $w\,\Delta N$, on the same scale. Parameter-free to first order, because the calibrated baseline equates the marginal disutility of labor with the wage; the curvature enters only at second order.
+& The rows where employment absorbs the shock. The saving convention must be stated with it --- read as a leak or as deferred consumption --- because that choice, not the leisure preference, governs the sign at the wage-pinned pole.
+& As the row above, plus the employment channel of a program that mobilizes labor. \\
+\bottomrule
+\end{tabular}
+\caption{Candidate aggregate measures. Each row states what the measure is,
+when it is the faithful representation and how it treats public spending.
+Section~\ref{sec:application} reports real GDP and the three indices in the
+rows below it; the exact money-metric is the analytic benchmark that the
+T\"ornqvist index tracks. The final-demand and leisure rows need the
+sector-wide demand basket and are therefore computed in the kernel, not from
+the aggregate manifests.}
+\label{tab:welfare-measures}
+\end{table}

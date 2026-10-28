@@ -1,0 +1,49 @@
+% =====================================================================
+%  Cover letter --- Metroeconomica resubmission
+%  Companion to refresponse.tex; NOT \input there (separate document).
+%  Substance mirrors response/editor.tex (E1): the mandate framing, the
+%  complete rewrite, and the structural summary of the revised draft.
+%  Compile: latexmk -pdf cover-letter.tex   (from revision/response/, or move)
+% =====================================================================
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage[hidelinks]{hyperref}
+\renewcommand{\today}{~%
+  \ifcase \month
+    \or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\space\number \year}
+
+\begin{document}
+
+\hfill\today
+
+\bigskip
+\noindent Dear Editor,
+
+\medskip
+
+Please find attached our revised manuscript, ``Which Short Run? Whose Money?
+Closure Choice in Input--Output Models of the Socio-Ecological Transformation,''
+which we resubmit for consideration at \textit{Metroeconomica}.
+
+We read the decision as a mandate to more fundamentally rethink the paper rather than to update it, and the revised manuscript is accordingly a \textbf{complete rewrite} that takes up key themes of the original version, but elaborates them in a more apt and, hopefully, more accurate way.
+
+Taking up key recommendations and criticisms by both reviewers, we took our core subject of interest -- the interaction of input--output modeling and transformation research -- as a vantage point to illustrate how the nuances pointed out by the reviewers can be employed to facilitate a broader appreciation of established modeling approaches within this field. In this spirit, the revision now develops its argument from the foundational level upward to point out how applied modeling and foundational assumptions on closure choice interact and, thereby, covers a larger terrain than the original submission did. In doing so we restate our basic argument by means of two primitive questions: the nature of the short run and the question of who bears the cost. These axes allow us to develop a matrix of five labor-market closures crossed with three financing closures, evaluated on a single, empirically informed green-investment impulse: the decarbonization of the German residential sector to introduce and discuss a concrete case from applied transformation research. The resubmission embeds all these model variants in a shared model core, is supplemented by an extensive appendix and offers an open-source code base for replication, reproduction and extension.
+
+The accompanying response document addresses both reports point by point. The reviewers' criticisms guided us at every step of the rewrite, and we are grateful for the constructive and direct feedback, which we believe has made the paper considerably stronger.
+
+We thank you again for the opportunity to revise and hope that the rewritten
+manuscript now potentially merits publication in \textit{Metroeconomica}.
+
+\bigskip
+\noindent Sincerely,
+
+\medskip
+\noindent Jakob Kapeller (corresponding author,
+\href{mailto:jakob.kapeller@uni-due.de}{jakob.kapeller@uni-due.de})
+and Franz Scharnreitner\\
+Institute for Socio-Economics, University of Duisburg-Essen; Institute for
+Comprehensive Analysis of the Economy (ICAE), Johannes Kepler University Linz
+
+\end{document}

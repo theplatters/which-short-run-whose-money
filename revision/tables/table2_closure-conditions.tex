@@ -1,0 +1,81 @@
+% =====================================================================
+% Table 1 --- the two-axis core of the closure matrix, block-tagged.
+% 2026-10-27: merged with the former overview table (archived); renders as Table 1.
+% ---------------------------------------------------------------------
+% Revised 2026-10-18 (ADR-0033): the financing conditions name the
+% balancing variable. tau is the wage-income tax rate that finances the
+% baseline government purchases g^G in every closure (kernel tau_rate);
+% under F2 the programme g is added to that base. F is the net
+% external transfer; B_gov = sum p g is the programme booked externally (F3).
+% Block tags \textbf{labor market:} / \textbf{financing:} sit on their own
+% line, so the two "financing:" labels align by construction.
+% =====================================================================
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\arraystretch}{1.3}
+\newcommand{\tblk}[1]{\textbf{#1:}}
+\newcommand{\tcond}[1]{\par\hspace{1em}#1}
+\newcommand{\outcome}[1]{{\centering\itshape #1\par}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.2cm}
+                  >{\raggedright\arraybackslash}p{6.2cm}
+                  >{\raggedright\arraybackslash}p{6.2cm}@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Labor-market closure}} \\
+\cmidrule(lr){2-3}
+\textbf{Financing closure}
+& \textbf{Standard CGE}\newline \scriptsize one flexible wage, labor mobile, full employment
+& \textbf{Standard Leontief}\newline \scriptsize wage pinned, fixed coefficients, output absorbs \\
+\midrule
+\textbf{F1}\newline \scriptsize repurposing of consumption
+&             {\outcome{pure reallocation}}
+  \vspace{5pt}
+\tblk{labor market}\tcond{$L_{i} = L_{i}^{\mathrm{cm}}(p, y_{i}, w)$, \quad $\textstyle\sum_{i} L_{i} = \bar L$}\par
+  \vspace{6pt}
+  \tblk{financing}\tcond{$\tau\, w\sum_{i} L_{i} = \textstyle\sum_{i} p_{i} g^{G}_{i}$, \quad $\tilde\beta_{i}$ tilted to program sectors, \quad $B_{\mathrm{gov}} = 0$}
+& {\outcome{quantity adjustment}}
+  \vspace{5pt}
+\tblk{labor market}\tcond{$w = 1$, \quad $L_{i} = L_{i}^{\mathrm{cm}}(p, y_{i}, w)$, \quad $(\theta, \varepsilon, \sigma) \to 0^{+}$}\par
+  \vspace{6pt}
+  \tblk{financing}\tcond{$\tau\, w\sum_{i} L_{i} = \textstyle\sum_{i} p_{i} g^{G}_{i}$, \quad $\tilde\beta_{i}$ tilted to program sectors, \quad $B_{\mathrm{gov}} = 0$} \\
+\midrule
+\textbf{F2}\newline \scriptsize refinancing via taxes
+& {\outcome{crowding out}}
+  \vspace{5pt}
+\tblk{labor market}\tcond{$L_{i} = L_{i}^{\mathrm{cm}}(p, y_{i}, w)$, \quad $\textstyle\sum_{i} L_{i} = \bar L$}\par
+  \vspace{6pt}
+  \tblk{financing}\tcond{$\tau\, w\sum_{i} L_{i} = \textstyle\sum_{i} p_{i}(g^{G}_{i} + g_{i})$, \quad $B_{\mathrm{gov}} = 0$}
+& {\outcome{crowding out with a Haavelmo top-up}}
+  \vspace{5pt}
+\tblk{labor market}\tcond{$w = 1$, \quad $L_{i} = L_{i}^{\mathrm{cm}}(p, y_{i}, w)$, \quad $(\theta, \varepsilon, \sigma) \to 0^{+}$}\par
+  \vspace{6pt}
+  \tblk{financing}\tcond{$\tau\, w\sum_{i} L_{i} = \textstyle\sum_{i} p_{i}(g^{G}_{i} + g_{i})$, \quad $B_{\mathrm{gov}} = 0$} \\
+\midrule
+\textbf{F3}\newline \scriptsize external finance
+& {\outcome{crowding out}}
+  \vspace{5pt}
+\tblk{labor market}\tcond{$L_{i} = L_{i}^{\mathrm{cm}}(p, y_{i}, w)$, \quad $\textstyle\sum_{i} L_{i} = \bar L$}\par
+  \vspace{6pt}
+  \tblk{financing}\tcond{$\tau\, w\sum_{i} L_{i} = \textstyle\sum_{i} p_{i} g^{G}_{i}$, \quad $B_{\mathrm{gov}} = \textstyle\sum_{i} p_{i} g_{i}$}
+& {\outcome{output expansion and external debt}}
+  \vspace{5pt}
+\tblk{labor market}\tcond{$w = 1$, \quad $L_{i} = L_{i}^{\mathrm{cm}}(p, y_{i}, w)$, \quad $(\theta, \varepsilon, \sigma) \to 0^{+}$}\par
+  \vspace{6pt}
+  \tblk{financing}\tcond{$\tau\, w\sum_{i} L_{i} = \textstyle\sum_{i} p_{i} g^{G}_{i}$, \quad $B_{\mathrm{gov}} = \textstyle\sum_{i} p_{i} g_{i}$} \\
+\bottomrule
+\end{tabular}
+\caption{The two-axis core of the closure matrix: the three financing closures
+(rows) crossed with the two labor-market poles of the introduction (columns).
+Each cell states the labor-market condition (the column) and the financing
+condition (the row), and the outcome line states the qualitative response to
+the demand-only impulse; the program cost $\sum_i p_i g_i$ is valued at each
+cell's equilibrium prices. In the conditions, $\tau$ is the wage-income tax rate financing the
+baseline purchases $g^{G}$ (a block unchanged by the program), $g$ is the
+program bundle, $L_{i}^{\mathrm{cm}}$ is cost-minimizing labor demand, and
+$\tilde\beta_{i}$ are expenditure shares tilted toward the program sectors
+under F1.}
+\label{tab:closure-conditions}
+\end{table}

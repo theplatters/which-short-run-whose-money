@@ -1,0 +1,120 @@
+design = "pricing_capacity_rows"
+date = "2026-10-23"
+status = "executed"
+run_id = "pricing_capacity_rows-DELTA-F1-d0"
+actor = "codex"
+schema_version = 2
+cell = "pricing_capacity_rows-DELTA-F1-d0"
+
+[metrics]
+gdp_rel = -0.0009728467524814377
+external_position = 0.0
+max_abs_price_dev = 4.263256414560601e-14
+profit = 0.0
+programme_financing = 0.0
+nominal_gdp = 0.999027153247529
+price_dev_mean = 7.266057746854412e-15
+external_transfer = 0.0
+employment = 0.999027153247529
+gdp = 0.9990271532475186
+retained_profit = 0.0
+gdp_wedge = 4.745759341062694e-12
+gdp_expenditure = 0.9990271532522642
+gdp_deflator = 1.000000000000015
+profit_share = 0.0
+gdp_expenditure_rel = -0.0009728467477357894
+wage = 1.0
+price_dev_max = 4.263256414560601e-14
+real_income = 0.9990271532475183
+price_dev_min = -2.6978419498391304e-14
+consumption = 0.9991943733602373
+factor_income = 0.999027153247529
+consumption_rel = -0.000805626639762691
+
+[gates]
+overall = "pass"
+
+    [gates.uniqueness]
+    value = 1.6565082638919648e-12
+    pass = true
+    tolerance = 1.0e-6
+
+    [gates.budget]
+    value = 1.1102230246251565e-16
+    pass = true
+    tolerance = 1.0e-9
+
+    [gates.residual]
+    value = 1.2821688155639777e-13
+    pass = true
+    tolerance = 1.0e-6
+
+    [gates.wage]
+    value = 0.0
+    pass = true
+    tolerance = 1.0e-8
+
+[provenance]
+git_commit = "8bf62ae0ca549619b38931e86651b061925ffe99"
+julia_version = "1.12.7"
+design_sha256 = "e0afb6c9b35dd3dcd98c199a03aa18d1c1522b10008d53581a63452650effeee"
+git_dirty = true
+seed = 1234
+manifest_sha256 = "f40ed58af21530376b766b460e4f9405ad4069bf9c45a74a01bc41056d32b0a9"
+
+    [provenance.opencge]
+    repo_url = "https://github.com/theplatters/OpenCGE"
+    git_tree_sha1 = "9f41bc9c69910f8cb37ff9ab78de75ce004ee9b9"
+    repo_rev = "v0.5.0"
+    version = "0.4.1"
+
+    [provenance.data_sha256]
+    "experiments/designs/pricing_capacity_rows.toml" = "e0afb6c9b35dd3dcd98c199a03aa18d1c1522b10008d53581a63452650effeee"
+    "data/I-O_DE2019_formatiert.csv" = "e9c3299731940f7ce683f0e508495c62ad255f0a5536cf1da63c02478058914d"
+    "data/impulses.csv" = "5545c748d848ec121fa5aff21d0c46a55c8d00462518718d3d54374c7f0b8c5f"
+
+[scenario]
+delta_epsilon = 0.0001
+eta = 1.0
+eta_s = 0.0
+pricing = "P1"
+financing = "F1"
+pricing_kind = "capacity"
+sigma = 0.0001
+theta = 0.0001
+delta = 0.0
+epsilon = 0.0001
+labour = "DELTA"
+magnitude = 1.0
+shock = "impulses.csv"
+
+[solver]
+init = "warm:reference-final -> no-pricing twin -> continuation(4)"
+algorithm = "kernel solve / solve_beta (Newton + residual-gated LM polish)"
+reference = "batch-continuation"
+
+[diagnostics]
+external_balance = 0.0
+gdp_m_final = -0.24226878856073014
+wage_max = 1.0
+gdp_g = 0.21410137597438547
+gdp_c = 0.6908190895832775
+wage_min = 1.0
+canary_ixm = 0.11974791549053038
+gdp_x = 0.4219454405780026
+gdp_m_int = -0.22229582728318842
+multistart_starts = 4
+jacobian_cond = 6.301060600849661
+canary_diff = -4.745648318760232e-12
+public_budget = 0.21410137597438153
+jacobian_rank = 142
+gdp_t_int = -0.025641227795918764
+jacobian_n = 142
+gdp_i = 0.16236709075644648
+canary_retained_profit = 0.0
+multistart_converged = 4
+canary_s = 0.09410668768986599
+
+[artifacts]
+log = "log.txt"
+solution = "solution.csv"

@@ -1,0 +1,102 @@
+% =====================================================================
+% tikz-closure-flexibility-map.tex
+% ---------------------------------------------------------------------
+% Closure flexibility map: a 4 x 2 grid of constant-height text boxes
+% (NOT a table). Columns = increasing flexibility (left to right);
+% rows = level of aggregation (aggregate / sectoral).
+%
+%   row 1  aggregate : conventional CGE  fixed real wage  Leontief closure
+%   row 2  sectoral  : no reallocation |  elastic labor supply models | [ -- ]
+%                        (col 1)          (one box, cols 2-3)          (col 4)
+%
+% Double-headed arrows:
+%   * "no reallocation" -> "conventional CGE": up first, then right
+%     (one 90-degree corner); replaces the direct diagonal.
+%   * the elastic box <-> its left neighbour "no reallocation" (short),
+%     and <-> "fixed real wage" above it (short).
+% Plain lines still link the aggregate row left to right.
+%
+% Drop-in: \input{figures/tikz-closure-flexibility-map}
+% Requires (already in the preamble): \usepackage{tikz} and
+%   \usetikzlibrary{arrows.meta, positioning, calc}
+% ---------------------------------------------------------------------
+% Style = house TikZ idiom: sans-serif labels, rounded corners, light
+% gray fills, Stealth arrowheads. The empty cell at row 2 / col 4 is a
+% `placeholder`; the old row 1 / col 1 placeholder is gone (the elbow of
+% the no-reallocation -> conventional-CGE arrow occupies that space).
+% =====================================================================
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance = 1.4cm and 2.0cm,
+    box/.style = {
+      draw, rectangle, rounded corners=3pt,
+      minimum width=3.4cm, minimum height=1.0cm,
+      align=center, font=\sffamily\small,
+      fill=gray!20, line width=0.5pt
+    },
+    widebox/.style = {
+      box, minimum width=7.4cm          % spans two columns + one gap
+    },
+    placeholder/.style = {
+      draw, rectangle, rounded corners=3pt,
+      minimum width=3.4cm, minimum height=1.0cm,
+      align=center, font=\sffamily\small,
+      draw=gray!50, densely dashed, line width=0.4pt
+    },
+    rowlabel/.style = {font=\sffamily\small},
+    axlabel/.style  = {font=\sffamily\small},
+    link/.style     = {draw, thick},
+    arr/.style      = {-{Stealth}, thick},
+    flexarrow/.style = {{Stealth}-{Stealth}, thick}
+  ]
+
+  % ---- geometry -------------------------------------------------------
+  \def\dx{4.0}    % horizontal pitch between column centres
+  \def\rowy{1.9}  % vertical distance between row centres
+
+  % ---- cells: row 1 = aggregate --------------------------------------
+  \node[box] (r1c2) at (\dx,0)    {conventional CGE};
+  \node[box] (r1c3) at (2*\dx,0)  {fixed real wage};
+  \node[box] (r1c4) at (3*\dx,0)  {Leontief closure};
+
+  % ---- cells: row 2 = sectoral ---------------------------------------
+  \node[box]         (r2c1) at (0,-\rowy) {no reallocation};
+  \node[widebox]     (ELS)  at (1.5*\dx,-\rowy) {elastic labor supply models};
+  \node[placeholder] (r2c4) at (3*\dx,-\rowy) {};
+
+  % ---- connector lines through the filled aggregate cells (left-right)
+  \draw[link] (r1c2.east) -- (r1c3.west);
+  \draw[link] (r1c3.east) -- (r1c4.west);
+
+  % ---- double arrow: no reallocation -> conventional CGE
+  %      up first, then right (one 90-degree corner)
+  \draw[flexarrow] (r2c1.north) -- (0,0) -- (r1c2.west);
+
+  % ---- short double arrows of the elastic-labor-supply box -----------
+  \draw[flexarrow] (ELS.west)   -- (r2c1.east);          % to no reallocation
+  \draw[flexarrow] (2*\dx,-1.4) -- (r1c3.south);         % up to fixed real wage
+
+  % ---- outer axes -----------------------------------------------------
+  % y-axis with the two row labels (rotated to avoid overlap)
+  \draw[arr] (-2.9,-2.7) -- (-2.9,1.0);
+  \draw (-2.9,0)        -- (-2.72,0);
+  \draw (-2.9,-\rowy)   -- (-2.72,-\rowy);
+  \node[rowlabel, rotate=90] at (-3.25,0)      {aggregate};
+  \node[rowlabel, rotate=90] at (-3.25,-\rowy) {sectoral};
+
+  % x-axis: flexibility, increasing to the right
+  \draw[arr] (-2.9,-3.2) -- (14.4,-3.2);
+  \node[axlabel, below] at (5.75,-3.25) {flexibility};
+
+\end{tikzpicture}
+\caption{A map of closure choices along the short-run (labor-market)
+  axis. Columns order the closures by increasing flexibility; the
+  aggregate row collects the single-wage closures, the sectoral row the
+  sector-level ones. The double-width box holds the elastic-labor-supply
+  family, tied by short double arrows to the no-reallocation and
+  fixed-real-wage corners it interpolates between; the right-angled
+  double arrow marks the reallocation margin from no reallocation up to
+  the conventional CGE closure.}
+\label{fig:flexibility-map}
+\end{figure}

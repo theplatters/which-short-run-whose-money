@@ -1,0 +1,37 @@
+# Citation metadata for the paper's replication materials.
+cff-version: 1.2.0
+message: "If you use these materials, cite the paper and the OpenCGE software separately."
+title: "Which Short Run? Whose Money? Closure Choice in Input–Output Models of the Socio-Ecological Transformation — replication materials"
+type: software
+authors:
+  - family-names: "Kapeller"
+    given-names: "Jakob"
+    email: "jakob.kapeller@uni-due.de"
+  - family-names: "Scharnreitner"
+    given-names: "Franz"
+    email: "fscharnreitner@gmail.com"
+version: 0.1.0
+date-released: "2026-10-12"
+abstract: "Input–output models are widely used to estimate the economic effects of green investment, industrial policy and other structural programs aiming to achieve a socio-ecological transformation. This practice often treats the model as a neutral analytical device, where it is not: every estimate presupposes a closure — an assumption about how factor markets clear and how expenditure is financed. Such closure assumptions carry substantial economic content and can have a strong impact on estimated effects. Using the decarbonization of the German residential housing stock as an example, we explore how typical closure choices on labor markets and financing affect estimates, with the largest differences concentrated in one interaction: a fixed wage and external finance. All estimates are produced within a single shared model core, available open-access, so that the differences we report reflect closure choice alone, making it easier for transformation research to consider a broader spectrum of input–output modeling approaches."
+license: MIT
+keywords:
+  - computable general equilibrium
+  - production networks
+  - green public investment
+  - labour market closures
+  - financing closures
+  - reproducibility
+references:
+  - type: software
+    title: "OpenCGE"
+    authors:
+      - family-names: "Kapeller"
+        given-names: "Jakob"
+        email: "jakob.kapeller@uni-due.de"
+      - family-names: "Scharnreitner"
+        given-names: "Franz"
+        email: "fscharnreitner@gmail.com"
+    version: 0.1.0
+    date-released: "2026-10-12"
+    license: MIT
+    repository-code: "https://github.com/theplatters/OpenCGE"

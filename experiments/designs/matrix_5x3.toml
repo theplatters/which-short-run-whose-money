@@ -1,0 +1,395 @@
+schema_version = 1
+design = "matrix_5x3"
+description = "The 5x3 labour-by-financing matrix (BF, ALPHA, BETA, GAMMA, DELTA x F1, F2, F3) plus the sectoral-labour BETA cells."
+smoke = false
+[data]
+vintage = "full-71-abill"
+drops = []
+calibration_root = "src"
+source_table = "data/I-O_DE2019_formatiert.csv"
+calibration_artifacts = []
+
+[calibration]
+saving_rate = 0.1199
+intermediate_imports = 0.2214
+intermediate_taxes = 0.0257449423974625
+baseline_root_tol = 1e-12
+
+[programme]
+source = "data/impulses.csv"
+year = 2024
+column_slice = [3, 73]
+total_eur_m = 40300.0
+f1_shift = "tilt_g0_over_c0"
+
+[reference]
+labor = "ALPHA"
+eta = 1.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+exo_scale_steps = 6
+thetas = [2.0, 1.5, 1.2, 1.0, 0.8, 0.65, 0.5]
+
+[gates]
+residual_tol = 1e-6
+budget_tol = 1e-9
+labour_tol = 1e-6
+wage_tol = 1e-8
+
+# ── the fifteen matrix cells ────────────────────────
+
+[cells.matrix_5x3-BF-F1]
+labor = "BF"
+financing = "F1"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "BF sectoral-wage endpoint (eta=0, ADR-0020 option C) with compositional F1 shift"
+
+[cells.matrix_5x3-BF-F2]
+labor = "BF"
+financing = "F2"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "BF sectoral-wage endpoint (eta=0, ADR-0020 option C), tax-financed programme"
+
+[cells.matrix_5x3-BF-F3]
+labor = "BF"
+financing = "F3"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "BF sectoral-wage endpoint (eta=0, ADR-0020 option C), externally financed programme"
+
+[cells.matrix_5x3-ALPHA-F1]
+labor = "ALPHA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Full-employment mobile labour (eta=1) with compositional F1 shift"
+
+[cells.matrix_5x3-ALPHA-F2]
+labor = "ALPHA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Full-employment mobile labour (eta=1), tax-financed programme"
+
+[cells.matrix_5x3-ALPHA-F3]
+labor = "ALPHA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Full-employment mobile labour (eta=1), externally financed programme"
+
+[cells.matrix_5x3-BETA-F1]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Scalar BETA (one aggregate real-wage supply equation, 2N+2), compositional F1 shift"
+
+[cells.matrix_5x3-BETA-F2]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Scalar BETA (one aggregate real-wage supply equation, 2N+2), tax-financed programme"
+
+[cells.matrix_5x3-BETA-F3]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Scalar BETA (one aggregate real-wage supply equation, 2N+2), externally financed programme"
+
+[cells.matrix_5x3-GAMMA-F1]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Fixed nominal wage with fully mobile allocation (eta=1), compositional F1 shift"
+
+[cells.matrix_5x3-GAMMA-F2]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Fixed nominal wage with fully mobile allocation (eta=1), tax-financed programme"
+
+[cells.matrix_5x3-GAMMA-F3]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+note = "Fixed nominal wage with fully mobile allocation (eta=1), externally financed programme"
+
+[cells.matrix_5x3-DELTA-F1]
+labor = "DELTA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+note = "DELTA corner (Leontief limit at eps=1e-4, eta=1), compositional F1 shift"
+
+[cells.matrix_5x3-DELTA-F2]
+labor = "DELTA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+note = "DELTA corner (Leontief limit at eps=1e-4, eta=1), tax-financed programme"
+
+[cells.matrix_5x3-DELTA-F3]
+labor = "DELTA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+note = "DELTA corner (Leontief limit at eps=1e-4, eta=1), externally financed programme"
+
+# ── the ADR-0022 sectoral cells: uniform elasticity ladder (rigid group "none") ──
+
+[cells.matrix_5x3-BETA-F1-etas025]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.25
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 0.25 for all sectors (3N+1), compositional F1 shift"
+
+[cells.matrix_5x3-BETA-F2-etas025]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.25
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 0.25 (3N+1), tax-financed programme"
+
+[cells.matrix_5x3-BETA-F3-etas025]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.25
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 0.25 (3N+1), externally financed programme"
+
+[cells.matrix_5x3-BETA-F1-etas05]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 0.5 (the BETA-nesting value), compositional F1 shift"
+
+[cells.matrix_5x3-BETA-F2-etas05]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 0.5, tax-financed programme"
+
+[cells.matrix_5x3-BETA-F3-etas05]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 0.5, externally financed programme"
+
+[cells.matrix_5x3-BETA-F1-etas1]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 1.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 1, compositional F1 shift"
+
+[cells.matrix_5x3-BETA-F2-etas1]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 1.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 1, tax-financed programme"
+
+[cells.matrix_5x3-BETA-F3-etas1]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 1.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 1, externally financed programme"
+
+[cells.matrix_5x3-BETA-F1-etas2]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 2.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 2, compositional F1 shift"
+
+[cells.matrix_5x3-BETA-F2-etas2]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 2.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 2, tax-financed programme"
+
+[cells.matrix_5x3-BETA-F3-etas2]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 2.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+note = "ADR-0022 sectoral closure, UNIFORM eta_s = 2, externally financed programme"
+
+# ── the two-group rigidity variants (rigid group at eta_s,i = 0) ────────────
+
+[cells.matrix_5x3-BETA-F1-rigidprog]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "programme"
+note = "ADR-0022 two-group: RIGID on the programme sectors (eta_s,i = 0), eta_s = 0.5 elsewhere, compositional F1 shift"
+
+[cells.matrix_5x3-BETA-F2-rigidprog]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "programme"
+note = "ADR-0022 two-group: RIGID on the programme sectors, eta_s = 0.5 elsewhere, tax-financed programme"
+
+[cells.matrix_5x3-BETA-F3-rigidprog]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "programme"
+note = "ADR-0022 two-group: RIGID on the programme sectors, eta_s = 0.5 elsewhere, externally financed programme"
+
+[cells.matrix_5x3-BETA-F1-rigidhalf]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "largest_half"
+note = "ADR-0022 two-group: RIGID on the largest half by baseline employment, eta_s = 0.5 elsewhere, compositional F1 shift"
+
+[cells.matrix_5x3-BETA-F2-rigidhalf]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "largest_half"
+note = "ADR-0022 two-group: RIGID on the largest half by baseline employment, eta_s = 0.5 elsewhere, tax-financed programme"
+
+[cells.matrix_5x3-BETA-F3-rigidhalf]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "largest_half"
+note = "ADR-0022 two-group: RIGID on the largest half by baseline employment, eta_s = 0.5 elsewhere, externally financed programme"

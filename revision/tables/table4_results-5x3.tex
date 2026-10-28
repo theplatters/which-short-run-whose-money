@@ -1,0 +1,112 @@
+% =====================================================================
+% Table 4 --- results across the 5x3 closure matrix (GENERATED)
+% ---------------------------------------------------------------------
+% Do NOT edit by hand. Regenerate with:  make_table4_results.py
+% Source: runs/matrix_5x3-<closure>-<fin>/manifest.toml (schema v2);
+%   elastic-supply column: the executed sectoral cells
+%   matrix_5x3-BETA-<fin>-etas{05,1,2}, reported as a min--max bracket.
+% Columns in table3 order (no-reallocation leftmost). Five outcomes per cell:
+%   \Delta Y real GDP, \Delta L employment, \Delta\omega average real consumption
+%   wage (metrics.wage; the CPI is one in every demand-only cell, ADR-0058),
+%   \Delta D net external position (= F + B_gov, 'external debt'),
+%   \Delta W_C household consumption welfare.
+% All in percent vs. the baseline; GDP at basic prices = 1.
+% COLLAPSED CELLS: F2/F3 share one cell in the three flexible-wage columns
+%   (\multirow{2}, the rule between those rows is a \cmidrule over the two
+%   right-hand columns only); the employment-adjustment and Leontief columns share
+%   one \multicolumn{2} cell per row. The generator asserts both coincidences
+%   on the printed strings, so a broken equivalence aborts the build.
+% =====================================================================
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{3.2cm} | >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.1cm}@{}}
+\toprule
+\textbf{Financing closure}
+& \textbf{No-reallocation}\newline \scriptsize immobile labor, sectoral wages
+& \textbf{Standard CGE}\newline \scriptsize one flexible wage, mobile labor
+& \textbf{Elastic labor supply}\newline \scriptsize sectoral supply on the real wage\newline {\footnotesize\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.85cm}@{\hspace{3pt}}>{\raggedleft\arraybackslash}p{2.2cm}@{}}
+& $\eta_s \in [0.5,2]$\end{tabular}}
+& \textbf{Employment adjustment}\newline \scriptsize wage pinned, employment uncapped
+& \textbf{Leontief closure}\newline \scriptsize wage pinned, quantities absorb
+\\
+\midrule
+\textbf{F1}\newline \scriptsize repurposing of consumption
+& \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$\Delta Y$ & $-0.01$ \\
+$\Delta L$ & $0.00$ \\
+$\Delta\omega$ & $+0.62$ \\
+$\Delta D$ & $-0.58$ \\
+$\Delta W_C$ & $+0.10$\end{tabular}
+& \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$\Delta Y$ & $0.00$ \\
+$\Delta L$ & $0.00$ \\
+$\Delta\omega$ & $0.00$ \\
+$\Delta D$ & $+0.08$ \\
+$\Delta W_C$ & $+0.14$\end{tabular}
+& \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.85cm}@{\hspace{3pt}}>{\raggedleft\arraybackslash}p{2.2cm}@{}}
+$\Delta Y$ & $[+0.12,\ +0.19]$ \\
+$\Delta L$ & $[+0.12,\ +0.19]$ \\
+$\Delta\omega$ & $[+0.10,\ +0.27]$ \\
+$\Delta D$ & $[-0.09,\ +0.14]$ \\
+$\Delta W_C$ & $[+0.42,\ +0.58]$\end{tabular}
+& \multicolumn{2}{|>{\centering\arraybackslash}p{4.35cm}}{\begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$\Delta Y$ & $-0.10$ \\
+$\Delta L$ & $-0.10$ \\
+$\Delta\omega$ & $0.00$ \\
+$\Delta D$ & $0.00$ \\
+$\Delta W_C$ & $-0.08$\end{tabular}}
+\\
+\cmidrule(lr){1-4}\cmidrule(lr){5-6}
+\textbf{F2}\newline \scriptsize refinancing via taxes
+& \multirow{7}{2.1cm}[\dimexpr\baselineskip/4\relax]{\centering \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$\Delta Y$ & $-0.02$ \\
+$\Delta L$ & $0.00$ \\
+$\Delta\omega$ & $+0.70$ \\
+$\Delta D$ & $-0.85$ \\
+$\Delta W_C$ & $-1.98$\end{tabular}}
+& \multirow{7}{2.1cm}[\dimexpr\baselineskip/4\relax]{\centering \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$\Delta Y$ & $0.00$ \\
+$\Delta L$ & $0.00$ \\
+$\Delta\omega$ & $0.00$ \\
+$\Delta D$ & $-0.10$ \\
+$\Delta W_C$ & $-1.82$\end{tabular}}
+& \multirow{7}{3.2cm}[\dimexpr\baselineskip/4\relax]{\centering \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.85cm}@{\hspace{3pt}}>{\raggedleft\arraybackslash}p{2.2cm}@{}}
+$\Delta Y$ & $[+0.13,\ +0.19]$ \\
+$\Delta L$ & $[+0.13,\ +0.19]$ \\
+$\Delta\omega$ & $[+0.11,\ +0.29]$ \\
+$\Delta D$ & $[-0.28,\ -0.05]$ \\
+$\Delta W_C$ & $[-1.57,\ -1.39]$\end{tabular}}
+& \multicolumn{2}{|>{\centering\arraybackslash}p{4.35cm}}{\begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$\Delta Y$ & $+0.13$ \\
+$\Delta L$ & $+0.13$ \\
+$\Delta\omega$ & $0.00$ \\
+$\Delta D$ & $0.00$ \\
+$\Delta W_C$ & $-1.53$\end{tabular}}
+\\
+\cmidrule(lr){5-6}
+\textbf{F3}\newline \scriptsize external finance
+& & & & \multicolumn{2}{|>{\centering\arraybackslash}p{4.35cm}}{\begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$\Delta Y$ & $+1.78$ \\
+$\Delta L$ & $+1.78$ \\
+$\Delta\omega$ & $0.00$ \\
+$\Delta D$ & $+1.33$ \\
+$\Delta W_C$ & $+2.26$\end{tabular}}
+\\
+\bottomrule
+\end{tabular}
+\caption{Estimated impacts of a transformational stimulus in the German residential
+sector across the closure matrix. Each cell reports the change in real GDP
+($\Delta Y$), employment ($\Delta L$, the composite primary-factor input,
+i.e.\ all value added), the average real consumption wage ($\Delta\omega$, the employment-weighted money wage deflated by the consumer price index, which equals one in every cell of this demand-only design),
+the net external position ($\Delta D$, in percentage points of baseline GDP) and household consumption welfare
+($\Delta W_C$), all other entries in percent against the baseline. The employment-adjustment and
+Leontief columns coincide. Within each of the three flexible-wage columns, F2 and F3
+coincide because the external transfer $F$ offsets the financing difference; the wage-pinned
+columns impose $F=0$. The fifteen cells therefore characterize nine distinct economies.}
+\label{tab:results-matrix}
+\end{table}

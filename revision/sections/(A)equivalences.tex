@@ -1,0 +1,71 @@
+\section{Equivalences, overlaps and scope of the closure matrix}\label{app:equivalences}
+
+\noindent
+The matrix of closures presented in Section~\ref{sec:two-questions} (Table~\ref{tab:closure-matrix-3x5}) crosses five
+labor-market closures with three financing closures, and several of its
+cells turn out to describe one and the same economy (effectively leading to nine numerically different scenarios). This appendix states the conditions under which that happens and lists the coincidences with the mechanism behind each; the derivations are in Appendix~\ref{app:proofs}. The
+exact derivations are in Appendix~\ref{app:proofs}\footnote{Model changes that
+break the coincidences and restore variety across the matrix can be found in
+Section~\ref{sec:beyond-demand-only}; the considerations from this appendix,
+hence, do not necessarily apply there.}. In addition, this appendix clarifies
+which overlaps between closure scenarios exist that are not directly visible
+in, e.g., Table~\ref{tab:results-matrix}.
+
+\subsection*{Scope: three conditions}
+
+\paragraph{A demand-only shock.} 
+The program enters final demand at baseline technology, without directly changing technology or the pricing equations. This assumption underpins the main case of our application.
+
+\paragraph{Prices cannot see demand.} 
+The zero-profit conditions contain no demand variable and are homogeneous of degree one in prices and the \emph{single} money wage, so relative prices are pinned by technology alone (Lemma~\ref{lem:price}). A sectoral wage vector breaks exactly this: with $N$ wages the block reads $p=\pi(A^{H},w)$ and demand reaches prices through the wage structure. In the single-wage closures, under the consumption price index $\mathcal{P}(p)$ as numeraire the real wage therefore stays at its baseline anchor under any demand-only shock (Corollary~\ref{cor:realwage}).
+
+\paragraph{A quantity block that is elasticity-free.} Evaluated at the baseline prices $p=w=1$, the clearing system is exactly affine and independent of the substitution elasticities $(\theta,\varepsilon,\sigma)$ (Lemma~\ref{lem:affine}) --- the production side of the classical nonsubstitution result (Remark~\ref{rem:samuelson}). Every closure that pins the wage and lets quantities absorb the shock therefore solves one and the same linear system, for every substitution-elasticity triple at baseline technology and under a fixed financing rule.
+
+The second and third conditions also locate the boundary of the exercise, since Section~\ref{sec:two-questions} introduces the single-wage branch and sectoral wages as the matrix's two key approaches to labor-market dynamics: where the wage is common the conditions apply as stated, where it is not they lapse, and that is where the matrix regains variety.
+
+The two sections below summarize coincidences across specifications: first those sketched in Figure~\ref{fig:flexibility-map}, then those that the results matrix prints.
+
+\clearpage
+\subsection*{Links sketched in Figure~\ref{fig:flexibility-map}}
+
+\input{tables/tableA1_links-in-figure}
+
+\paragraph{The four links.} Each of the three identities in
+Three of the four links in Table~\ref{tab:equiv-links} are identities with one-step arguments; the fourth is a limit that the closure attains only at a different transfer.
+
+\emph{Full reallocation and standard CGE.} The first link holds by definition: $\eta$ takes only the values $0$ and $1$, and $\eta = 1$ is the cost-minimizing allocation that the standard CGE closure assumes. The no-reallocation and standard CGE closures therefore differ in this one parameter only.
+
+\emph{Standard CGE and single-wage elastic supply.} With one wage, elastic supply reads $\sum_i L_i = \Lbar\,[(w/\mathcal{P})/(w_0/\mathcal{P}_0)]^{\eta_s}$, the only equation in which it differs from the standard CGE closure. At baseline technology the single-wage price block holds the real wage at its anchor, $w/\mathcal{P} = w_0/\mathcal{P}_0 = 1$ (Lemma~\ref{lem:price}), so the supply equation reduces to the full-employment condition $\sum_i L_i = \Lbar$ at every $\eta_s$ and under every financing rule.
+
+\emph{No reallocation and sectoral elastic supply at $\eta_s=0$.} At $\eta_s=0$ each sector's labor supply is fixed at
+$\bar L_i$, so the sectoral system's labor equations become
+$L^{cm}_i(p,y_i,w_i)=\bar L_i$ --- the same equations that determine the
+sectoral wages at the $\eta=0$ endpoint. Prices and the numeraire are the same
+in both systems, and the wage bill is evaluated at the same allocation, so the
+two systems have the same solutions (Proposition~\ref{prop:nest}).
+
+\emph{Elastic labor supply and employment adjustment.}
+The arrow from the elastic labor supply model to the employment-adjustment closure in Figure~\ref{fig:flexibility-map} is a limit: as $\eta_s\to\infty$ the supply curves flatten, prices return to the baseline and the real wage to its anchor, but the elastic labor supply model keeps the external transfer free, whereas the employment-adjustment closure sets it to zero. The two therefore coincide only at the same transfer (Appendix~\ref{app:sectoral}, Table~\ref{tab:sectoral}).
+
+Of the three identities, the definitional one holds under any shock because nothing in it refers to technology, the rigid-corner one because Proposition~\ref{prop:nest}
+does not depend on technology, and only the single-wage identity fails:
+a technology change generally breaks the real-wage anchor
+(Corollary~\ref{cor:realwage}).
+
+\subsection*{Coincidences in the results matrix}
+
+The wage-pinned/Leontief row of Table~\ref{tab:equiv-matrix} rests on the
+second and third scope conditions, read at a pinned wage; the financing row rests on the transfer instrument
+\eqref{eq:finstrument} of Appendix~\ref{app:proofs}.
+
+\input{tables/tableA2_overlaps-in-matrix}
+
+\paragraph{The wage-pinned/Leontief pair.} At baseline prices, Lemma~\ref{lem:affine}
+gives $y = G\,y + b(F)$, with both $G$ and $b(F)$ independent of the
+substitution elasticities. Under a fixed financing rule, the
+employment-adjustment and Leontief closures both set $F = 0$ and therefore
+share this quantity system and its labor requirements. Their coincidence is
+exact for demand-only shocks of any size.
+
+\subsection*{The mapping onto applied models}
+FIDELIO and E3ME set nominal wages along an estimated wage curve \citep{BlanchflowerOswald.1995} rather than by market clearing, price as mark-ups over unit costs with sluggish pass-through, and tie household consumption to disposable income through an error-correction rule rather than an Euler equation. Their short-run dynamics therefore correspond to the employment-adjustment column under F3, their static input--output core to the Leontief corner, and their medium-run adjustment traces a path toward the elastic-supply column as the wage curve tightens.

@@ -1,0 +1,91 @@
+% =====================================================================
+% Table 3b --- the closure matrix, TRANSPOSED (DRAFT, v3)
+% ---------------------------------------------------------------------
+% Revised 2026-10-18 (ADR-0033) to the same conditions as Table 3c: the
+% financing conditions name tau (wage-income tax financing g^G in every
+% closure, plus g under F2), B_gov (F3) and the net external transfer F; BETA and the
+% fixed-wage columns state their demand side. Column order as before.
+%
+% Block labels: each cell tags its conditions by block --
+%   labour market: the labour-market closure condition (the column, varies)
+%   production:    a production-side condition, where one is added
+%                  (only the Leontief column pins substitution)
+%   financing:     the financing condition (the row, varies)
+% =====================================================================
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.85cm}
+                  >{\raggedright\arraybackslash}p{2.45cm}
+                  >{\raggedright\arraybackslash}p{2.45cm}
+                  >{\raggedright\arraybackslash}p{2.45cm}
+                  >{\raggedright\arraybackslash}p{2.45cm}
+                  >{\raggedright\arraybackslash}p{2.45cm}@{}}
+\toprule
+\textbf{Financing closure}
+& \textbf{Standard CGE}\newline \scriptsize one flexible wage, mobile labor ($\eta = 1$)
+& \textbf{Elastic labor supply}\newline \scriptsize behavioral supply on the real wage
+& \textbf{Employment adjustment}\newline \scriptsize wage pinned, employment uncapped
+& \textbf{Leontief closure}\newline \scriptsize wage pinned, quantities absorb
+& \textbf{No-reallocation}\newline \scriptsize immobile labor, sectoral wages ($\eta = 0$) \\
+\midrule
+
+\textbf{F1}\newline \scriptsize repurposing of consumption
+& \textit{labor market:} $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$, $\sum_i L_i = \bar L$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $\tilde\beta_i \propto \beta_i d_i$
+& \textit{labor market:} $L_i^{\mathrm{cm}}(p, y_i, w_i) = \bar L_i \allowbreak \bigl(\tfrac{w_i/\mathcal{P}(p)}{w_i^{0}/\mathcal{P}^{0}}\bigr)^{\eta_s}$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $\tilde\beta_i \propto \beta_i d_i$
+& \textit{labor market:} $w = 1$ (numeraire), $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $\tilde\beta_i \propto \beta_i d_i$
+& \textit{labor market:} $w = 1$, $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$; \textit{production:} $(\theta, \epsilon, \sigma) \to 0^{+}$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $\tilde\beta_i \propto \beta_i d_i$
+& \textit{labor market:} $\eta = 0$: $L_i^{\mathrm{cm}}(p, y_i, w_i) = \bar L_i$, sectoral $w_i$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $\tilde\beta_i \propto \beta_i d_i$ \\
+\midrule
+
+\textbf{F2}\newline \scriptsize refinancing via taxes
+& \textit{labor market:} $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$, $\sum_i L_i = \bar L$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i (g^{G}_i + g_i)$
+& \textit{labor market:} $L_i^{\mathrm{cm}}(p, y_i, w_i) = \bar L_i \allowbreak \bigl(\tfrac{w_i/\mathcal{P}(p)}{w_i^{0}/\mathcal{P}^{0}}\bigr)^{\eta_s}$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i (g^{G}_i + g_i)$
+& \textit{labor market:} $w = 1$ (numeraire), $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i (g^{G}_i + g_i)$
+& \textit{labor market:} $w = 1$, $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$; \textit{production:} $(\theta, \epsilon, \sigma) \to 0^{+}$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i (g^{G}_i + g_i)$
+& \textit{labor market:} $\eta = 0$: $L_i^{\mathrm{cm}}(p, y_i, w_i) = \bar L_i$, sectoral $w_i$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i (g^{G}_i + g_i)$ \\
+\midrule
+
+\textbf{F3}\newline \scriptsize external finance
+& \textit{labor market:} $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$, $\sum_i L_i = \bar L$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $B_{\mathrm{gov}} = \sum_i p_i g_i$
+& \textit{labor market:} $L_i^{\mathrm{cm}}(p, y_i, w_i) = \bar L_i \allowbreak \bigl(\tfrac{w_i/\mathcal{P}(p)}{w_i^{0}/\mathcal{P}^{0}}\bigr)^{\eta_s}$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $B_{\mathrm{gov}} = \sum_i p_i g_i$
+& \textit{labor market:} $w = 1$ (numeraire), $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $B_{\mathrm{gov}} = \sum_i p_i g_i$
+& \textit{labor market:} $w = 1$, $L_i = L_i^{\mathrm{cm}}(p, y_i, w)$; \textit{production:} $(\theta, \epsilon, \sigma) \to 0^{+}$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $B_{\mathrm{gov}} = \sum_i p_i g_i$
+& \textit{labor market:} $\eta = 0$: $L_i^{\mathrm{cm}}(p, y_i, w_i) = \bar L_i$, sectoral $w_i$
+  \newline \textit{financing:} $\tau w \sum_i L_i = \sum_i p_i g^{G}_i$, $B_{\mathrm{gov}} = \sum_i p_i g_i$ \\
+\bottomrule
+\end{tabular}
+\caption{The closure matrix, transposed: the three financing closures
+(rows) crossed with the five labor-market closures (columns). Each cell
+states the labor-market condition (the column), any production-side
+condition (only the Leontief column pins substitution), and the financing
+condition (the row). Common to all cells: household expenditure is
+$E^{h} = (1-\tau)\,w\sum_i L_i + F$, where $\tau$ is the wage-income tax rate
+that finances the baseline government purchases $g^{G}_i$ in every closure
+(and the program $g_i$ under F2), $F$ is the net external transfer closing
+$S + T_{\mathrm{int}} + M - (I+X) = F + B_{\mathrm{gov}}$, endogenous on the
+mobile labor rows and identically zero on the wage-pinned rows, and
+$B_{\mathrm{gov}} = \sum_i p_i g_i$ is the program booked externally (F3 only;
+zero otherwise). The program enters final demand as additive real demand
+$g_i$ under F2 and F3; under F1 it is a reallocation of the household preference
+weights $\tilde\beta_i \propto \beta_i d_i$. $\theta$, $\epsilon$ and $\sigma$ are
+the substitution elasticities whose limit $0^{+}$ gives fixed coefficients.
+The orientation matches Table~\ref{tab:closure-conditions}.}
+\label{tab:closure-matrix-3x5}
+\end{table}

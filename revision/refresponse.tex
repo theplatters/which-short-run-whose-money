@@ -1,0 +1,57 @@
+% =====================================================================
+%  Response to the Editor and Referees --- root file
+%  Metroeconomica submission:
+%    "Which Short Run? Whose Money? Closure Choice in
+%     Input--Output Models of the Socio-Ecological Transformation"
+%  Basis: mirrors the manuscript setup (root file + subfolder inputs).
+%  Compile: latexmk -pdf refresponse.tex   (from revision/)
+% =====================================================================
+\documentclass{article}
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{amsmath, amssymb}
+\usepackage[
+backend=biber,
+style=authoryear,
+isbn=false, url=false, doi=false, eprint=false,
+natbib=true,
+giveninits=true,
+uniquelist=false
+]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{framed}
+
+% ---- Response macros ---------------------------------------------------
+\newcommand{\refcom}[1]{\par\medskip\noindent\textit{Referee:} ``#1''\par}
+\newcommand{\response}{\par\noindent\textbf{Response.}\ }
+\newcommand{\loc}[1]{\par\noindent\textbf{Location.}\ #1\par}
+
+% ---- Date --------------------------------------------------------------
+\renewcommand{\today}{~%
+  \ifcase \month
+    \or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\space\number \year}
+
+\title{Response to the Editor and Referees\\[0.3em]
+\large Which Short Run? Whose Money? Closure Choice in Input--Output
+Models of the Socio-Ecological Transformation}
+\author{Jakob Kapeller \and Franz Scharnreitner}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\noindent This document responds point by point to the editor and to both
+referees. Each numbered point restates the referee's comment and gives our
+response together with the location of the change in the revised manuscript.
+
+\input{response/editor}
+\input{response/reviewer1}
+\input{response/reviewer2}
+
+\printbibliography[title={References}]
+
+\end{document}

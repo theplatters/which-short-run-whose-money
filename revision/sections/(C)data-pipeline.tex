@@ -1,0 +1,88 @@
+\section{From the input--output table to $\Omega$: the data pipeline}\label{app:pipeline}
+
+All closures use the same calibration of the input shares $\Omega$, factor shares $\alpha$, Domar weights $\lambda$ and household expenditure shares $\beta$. The following subsections describe their construction from the input--output table.
+
+\subsection{Source data}\label{app:pipeline-source}
+
+The table is Germany's input--output account for 2019 (revision 2019), 71 product groups at basic prices. Rows $1$--$71$ are the modeled sectors; row $72$ (households' own goods and services) lies outside the modeled block; rows $77$--$84$ carry value added and output. Columns $2$--$72$ are the 71 using sectors and columns $75$--$81$ the seven final-demand categories.
+
+\subsection{The intermediate-use matrix}\label{app:pipeline-z}
+
+The $71\times71$ matrix $Z$ records domestic intermediate deliveries at
+basic prices, with supplying sectors in rows and using sectors in columns.
+Its column sums give the domestic intermediate bill reported in row~73 of the source table. In baseline GDP units this bill is $a_i\lambda_i$, where $a_i$ is the domestic intermediate bill per unit of output (Appendix~\ref{app:closure-systems}). Imported intermediates $M_{\mathrm{int},i}$ and product taxes
+on intermediate use $T_{\mathrm{int},i}$ are reported separately by using sector in
+rows~74 and~75. They are excluded from $Z$.
+
+\subsection{The domestic intermediate bill and the external account}\label{app:abill}
+
+Sector $u$'s intermediate bill comprises domestic inputs $a_u\lambda_u$, imported inputs $M_{\mathrm{int},u}$ and product taxes $T_{\mathrm{int},u}$. In baseline GDP units,
+\[
+a_u\lambda_u + M_{\mathrm{int},u} + T_{\mathrm{int},u}
+= (1-\alpha_u)\lambda_u.
+\]
+Only $a_u\lambda_u$ enters demand for domestic intermediate goods; $M_{\mathrm{int},u}$ and $T_{\mathrm{int},u}$ are fixed shares of the same composite, valued at $P_u$. Imported inputs and product taxes are recorded separately in the external-account identity \eqref{eq:financing-external-account} (Appendix~\ref{app:proofs}).
+
+\subsection{Domestic intermediate-input shares: $\Omega$}\label{app:pipeline-omega}
+
+For each using sector $i$, domestic intermediate purchases are normalized by their total:
+\[
+\Omega_{iu}
+= \frac{p_u x_{ui}}{\sum_{u'} p_{u'}x_{u'i}},
+\qquad
+\sum_u \Omega_{iu}=1.
+\]
+Rows index using sectors and columns index supplying sectors. Thus, $\Omega$ is obtained by normalizing the columns of $Z$ and transposing.
+
+These shares enter the CES intermediate-input price index.
+
+\subsection{Value added, factor shares and Domar weights}\label{app:pipeline-va}
+
+Sectoral value added $v_i$ comprises employee compensation, depreciation, net operating surplus, and other net taxes on production. The calibrated factor share, $\alpha_i=v_i/(p_i y_i)$, therefore measures the full value-added share: the model's single primary factor, called labor, encompasses all primary inputs (Section~\ref{subsec:optimization}). With baseline prices normalized to one, the Domar weights are $\lambda_i=y_i/\mathrm{GDP}$. They sum to $2.11$ because gross output includes intermediate production, while the sectoral income shares $\lambda_i\alpha_i$ sum to one.
+
+\subsection{Final demand and household shares $\beta$}\label{app:pipeline-fd}
+
+Final demand comprises household consumption, nonprofit institutions, government consumption, investment and exports. Investment includes equipment, construction and inventories. Imports and product taxes are reported by final-demand category and allocated proportionally across sectors within each category; non-positive categories receive no domestic allocation.
+
+Household expenditure shares are calibrated to clear goods markets at the baseline $y=\lambda$. Domestic household demand follows from the accounting identity
+\begin{equation}
+c^{\mathrm{d}}_u = \lambda_u - \sum_i \Omega_{iu} a_i\lambda_i
+  - (1-m_u)\,(g^G_u + \mathrm{inv}_u) - X_u .
+\label{eq:betaresid}
+\end{equation}
+Since $\beta_u$ measures expenditure at purchasers' prices, domestic demand at basic prices is grossed up before normalization:
+\begin{equation}
+c^{h}_{u0} = \frac{c^{\mathrm{d}}_u}{1-m_u}, \qquad \beta_u = \frac{c^{h}_{u0}} {\sum_v c^{h}_{v0}}.
+\end{equation}
+
+{\setlength{\emergencystretch}{1.2em}%
+The saving rate is the residual of household disposable income after consumption, $s=1-\sum_u c^{h}_{u0}/(1-\sum_u g^{G}_u)=0.1199$; it enters household demand \eqref{eq:cons}.\par}
+
+\subsection{National-accounting consistency}\label{app:pipeline-checks}
+
+Table~\ref{tab:io-summary} reports the calibration aggregates. Domestic final deliveries carry the imported intermediates and the product taxes used up in producing them, whereas the import and tax margins recorded on final use sit in their own columns. Subtracting the intermediate margins yields expenditure-side GDP:
+\[
+3{,}776{,}137 - 670{,}368 - 77{,}951 = 3{,}027{,}818
+\quad\text{(EUR m)},
+\]
+equal to GDP measured from production and income. Both sides are read off the
+same table, so the agreement is a consistency check on our reading of it rather
+than an independent estimate of expenditure-side GDP.
+
+\input{tables/tableA6_io-summary}
+
+\subsection{The composition of the program's spending}\label{app:pipeline-composition}
+
+The program vector combines the 2024 spending shares with the converted horizon-average total; it is not the horizon-average sectoral vector. A uniform deflator leaves these shares unchanged, so their use with the 2019 input--output table assumes a common price conversion across program sectors.
+
+We allocate program spending to domestic deliveries, imports and product taxes using the shares reported for equipment and construction investment. The allocation assigns $73.5\%$ of spending to domestic production, $17.8\%$ to imports and $8.7\%$ to product taxes.
+
+Tracing domestic deliveries through the production network gives total imports of about EUR~$0.35$ per euro of program spending: EUR~$0.18$ directly and EUR~$0.17$ through intermediate inputs. Domestic value added amounts to EUR~$0.56$ and product taxes to EUR~$0.10$.
+Table~\ref{tab:pipeline-composition} reports the spending allocation, the composition of gross output and the totals per euro of spending.
+Panel A reports shares of program spending, whereas panel B reports shares of the gross output generated along the supply chains. Panel C expresses imports, taxes and value added per euro of program spending; gross output counts intermediate production at successive stages.
+
+These calculations use baseline prices and input coefficients and exclude induced household consumption, so they are common to all closures. Domestic deliveries propagate through $\Omega^{\top}\operatorname{diag}(a)$, where $a_i$ is the domestic intermediate bill per unit of output. Import ratios calculated from the full model response also reflect induced household consumption and the activity permitted by each closure; a higher ratio will not imply more import-intensive program spending, but, rather, a higher multiplier.
+
+The allocation of spending between domestic deliveries, imports and taxes is an assumption because the published table reports these margins by final-demand category rather than by product. Using the program-weighted average of sectoral import intensities as the direct import share, while retaining the investment-category tax share, lowers direct import content to $14.3\%$ and raises induced gross output to EUR~$1.36$ per euro of spending. Total direct and embodied imports then amount to $32.0\%$, compared with about $35\%$ under the investment-category allocation. The two allocations therefore imply an import-content range of roughly $32$--$35\%$.
+
+\input{tables/tableA7_composition.tex}

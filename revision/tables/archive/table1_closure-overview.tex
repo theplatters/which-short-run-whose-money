@@ -1,0 +1,60 @@
+% =====================================================================
+% Table 1 --- first, simplified map of the two closure axes.
+% Input from section (1)introduction.tex. The assessment comments below
+% were written when the table was first crafted and are kept with it.
+% ---------------------------------------------------------------------
+% LAYOUT RULE (2026-10-10): for a manual break inside a cell use \par,
+% NEVER \newline.
+%   \centering centres a line through the \leftskip/\rightskip fil, and
+%   \newline bypasses it: it tears the line before the break out of the
+%   centring and lands 2-14 pt off centre (measured). \par, \linebreak,
+%   \shortstack[c] and a nested tabular all centre exactly; \par is the
+%   least surprising of the four and is what is used below.
+%   Measured on a controlled test (column centre = 0):
+%     \newline  -> -2.5 pt on the line before the break
+%     \par      ->  0.0 pt on both lines
+%     \linebreak->  0.0 pt on both lines
+%   The three columns are equal p{4.5cm} with \centering so that wrapped
+%   text is centred too (a bare c-column does not wrap).
+% =====================================================================
+% --- Table sketch, crafted in LaTeX (was a markdown sketch) -----------
+% Assessment: the 3x2 structure is sound -- rows = financing closure,
+% columns = labor-market closure -- and the F3 row matches the measured
+% matrix (standard CGE / elastic supply under F3 = crowding out + external
+% debt; employment adjustment and its Leontief corner under F3 =
+% the Keynesian case, +2.26 % consumption / +1.78 % employment).
+% Two cautions:
+%  * The column labels were "fixed | flexible", which collides with the
+%    paper's own vocabulary: the employment adjustment closure is the
+%    WAGE-PINNED row and the standard CGE closure the
+%    flexible-wage one, i.e. the opposite sense. The headers below name
+%    the mechanism instead.
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{@{}>{\centering\arraybackslash}p{4.5cm}
+                  >{\centering\arraybackslash}p{4.5cm}
+                  >{\centering\arraybackslash}p{4.5cm}@{}}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Labor-market closure}} \\
+\cmidrule(lr){2-3}
+ & \textbf{Scarce factor supply}\par
+   Computable General Equilibrium (CGE)
+ & \textbf{Wage pinned}\par
+   Leontief-Inverse \par and Output adjustment \\
+\midrule
+\textbf{Repurposing consumption} (F1)
+  & pure reallocation
+  & quantity adjustment \\[3pt]
+\textbf{Refinancing via taxes} (F2)
+  & crowding out
+  & crowding out with \par Haavelmo-topup \\[3pt]
+\textbf{External finance} (F3)
+  & crowding out
+  & output expansion\par and external debt \\
+\bottomrule
+\end{tabular}
+\caption{A simplified map of two main closure axes in input--output modeling (for a one-factor model).}
+\label{tab:overview}
+\end{table}

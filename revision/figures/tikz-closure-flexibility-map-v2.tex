@@ -1,0 +1,82 @@
+% =====================================================================
+% tikz-closure-flexibility-map-v2.tex
+% ---------------------------------------------------------------------
+% v2 of the closure flexibility map. Changes vs. v1:
+%   * ~20% narrower: every label takes a symmetric two-line break, so the
+%     constant-size boxes shrink (2.7cm wide, pitch 3.2cm; v1: 3.4 / 4.0).
+%   * a new double arrow between "employment adjustment" and "Leontief closure"
+%     (the equivalence of Section 3: employment adjustment IS the Leontief
+%     result once production is rigid), replacing the plain link there.
+% Grid unchanged: row 1 = aggregate, row 2 = sectoral; columns = increasing
+% flexibility. The elastic-labor-supply box still spans columns 2-3.
+% Requires (already in the preamble): \usepackage{tikz} and
+%   \usetikzlibrary{arrows.meta, positioning, calc}
+% =====================================================================
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance = 1.4cm and 2.0cm,
+    box/.style = {
+      draw, rectangle, rounded corners=3pt,
+      minimum width=2.7cm, minimum height=1.1cm,
+      align=center, font=\sffamily\small,
+      fill=gray!20, line width=0.5pt
+    },
+    widebox/.style = {
+      box, minimum width=5.9cm          % spans two columns + one gap
+    },
+    rowlabel/.style = {font=\sffamily\small},
+    axlabel/.style  = {font=\sffamily\small},
+    link/.style     = {draw, thick},
+    arr/.style      = {-{Stealth}, thick},
+    flexarrow/.style = {{Stealth}-{Stealth}, thick}
+  ]
+
+  % ---- geometry -------------------------------------------------------
+  \def\dx{3.2}    % horizontal pitch between column centres
+  \def\rowy{1.9}  % vertical distance between row centres
+
+  % ---- cells: row 1 = aggregate --------------------------------------
+  \node[box] (r1c2) at (\dx,0)    {conventional\\CGE};
+  \node[box] (r1c3) at (2*\dx,0)  {employment\\adjustment};
+  \node[box] (r1c4) at (3*\dx,0)  {Leontief\\closure};
+
+  % ---- cells: row 2 = sectoral ---------------------------------------
+  \node[box]         (r2c1) at (0,-\rowy) {no\\reallocation};
+  \node[widebox]     (ELS)  at (1.5*\dx,-\rowy) {elastic labor\\supply models};
+
+  % ---- connector line through the left aggregate pair (left-right) ----
+  \draw[link] (r1c2.east) -- (r1c3.west);
+
+  % ---- double arrow: employment adjustment <-> Leontief closure --------
+  \draw[flexarrow] (r1c3.east) -- (r1c4.west);
+
+  % ---- double arrow: no reallocation -> conventional CGE
+  %      up first, then right (one 90-degree corner)
+  \draw[flexarrow] (r2c1.north) -- (0,0) -- (r1c2.west);
+
+  % ---- short double arrows of the elastic-labor-supply box -----------
+  \draw[flexarrow] (ELS.west)     -- (r2c1.east);        % to no reallocation
+  \draw[flexarrow] (2*\dx,-1.35)  -- (r1c3.south);       % up to employment adjustment
+
+  % ---- double arrow: single-wage elastic supply <-> conventional CGE --
+  %      (the missing link: with ONE common wage the supply equation
+  %      coincides with full employment for every elasticity)
+  \draw[flexarrow] (\dx,-1.35) -- (\dx,-0.55);
+
+  % ---- outer axes -----------------------------------------------------
+  % y-axis with the two row labels (rotated to avoid overlap)
+  \draw[arr] (-2.4,-2.7) -- (-2.4,1.0);
+  \draw (-2.4,0)        -- (-2.22,0);
+  \draw (-2.4,-\rowy)   -- (-2.22,-\rowy);
+  \node[rowlabel, rotate=90] at (-2.75,0)      {aggregate};
+  \node[rowlabel, rotate=90] at (-2.75,-\rowy) {sectoral};
+
+  % x-axis: flexibility, increasing to the right
+  \draw[arr] (-2.4,-3.2) -- (11.55,-3.2);
+  \node[axlabel, below] at (4.58,-3.25) {flexibility};
+
+\end{tikzpicture}
+\caption{A map of closure choices in input--output modeling}
+\label{fig:flexibility-map}
+\end{figure}

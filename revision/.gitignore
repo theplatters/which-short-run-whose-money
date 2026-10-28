@@ -1,0 +1,29 @@
+# LaTeX build artifacts (never commit)
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fff
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.ttt
+*.fdb_latexmk
+# generated PDFs and LaTeX auxiliary leftovers (never commit)
+*.pdf
+*.bbl-SAVE-ERROR
+*-SAVE-ERROR
+*.toc
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.nav
+*.snm
+*.vrb
+*.dvi
+*.xdv
+*.spl

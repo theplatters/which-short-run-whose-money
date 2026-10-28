@@ -1,0 +1,113 @@
+% =====================================================================
+% tikz-closure-flexibility-map-v3.tex
+% ---------------------------------------------------------------------
+% Closure flexibility map (revised 2026-10-12). Changes vs. the earlier v2:
+%   * three link styles with a legend, matching the three kinds of overlap
+%     in Appendix~\ref{app:equivalences}: exact identity (solid, double
+%     arrow), limit (dashed, one-way), switch between closures (dotted,
+%     labelled eta: 0 -> 1 -- eta takes only the endpoints, not a slider);
+%   * the unexplained plain line standard CGE -- fixed real wage is gone;
+%   * Leontief sits in the fixed-real-wage column (same labour closure,
+%     identical economy under demand-only shocks), not to its right;
+%   * new exact link: single-wage elastic supply = standard CGE;
+%   * the empty sectoral box is labelled (sectoral fixed real wage, not
+%     built); box names match the tables (``standard CGE'').
+% Grid: row 1 = aggregate (single wage), row 2 = sectoral (N wages);
+% columns = increasing labour-market flexibility.
+% Requires (already in the preamble): \usepackage{tikz} and
+%   \usetikzlibrary{arrows.meta, positioning, calc}
+% =====================================================================
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    box/.style = {
+      draw, rectangle, rounded corners=3pt,
+      minimum width=2.7cm, minimum height=1.1cm,
+      align=center, font=\sffamily\small,
+      fill=gray!20, line width=0.5pt
+    },
+    placeholder/.style = {
+      draw, rectangle, rounded corners=3pt,
+      minimum width=2.7cm, minimum height=1.1cm,
+      align=center, font=\sffamily\scriptsize, text=gray,
+      draw=gray!50, densely dashed, line width=0.4pt
+    },
+    rowlabel/.style = {font=\sffamily\small},
+    axlabel/.style  = {font=\sffamily\small},
+    lab/.style      = {font=\sffamily\scriptsize, fill=white, inner sep=1.5pt},
+    arr/.style      = {-{Stealth}, thick},
+    exact/.style    = {{Stealth}-{Stealth}, thick},
+    limit/.style    = {-{Stealth}, thick, dashed},
+    switch/.style   = {{Stealth}-{Stealth}, thick, dotted}
+  ]
+
+  % ---- geometry -------------------------------------------------------
+  \def\dx{3.2}    % horizontal pitch between column centres
+  \def\rowy{2.5}  % vertical distance aggregate row -> sectoral row
+  \def\topy{1.7}  % Leontief box, stacked above the fixed real wage
+
+  % ---- cells: aggregate (single wage) --------------------------------
+  \node[box] (cge) at (\dx,0)       {standard\\CGE};
+  \node[box] (frw) at (3*\dx,0)     {fixed real\\wage};
+  \node[box] (leo) at (3*\dx,\topy) {Leontief\\closure};
+
+  % ---- cells: sectoral (N wages) -------------------------------------
+  \node[box]         (nr)  at (0,-\rowy)      {no\\reallocation};
+  \node[box]         (els) at (2*\dx,-\rowy)  {elastic labor\\supply};
+  \node[placeholder] (ph)  at (3*\dx,-\rowy)  {sectoral fixed\\real wage\\(not built)};
+
+  % ---- switch: the reallocation closure, eta = 0 -> eta = 1 ----------
+  \draw[switch] (nr.north) -- (0,0) -- (cge.west);
+  \node[lab, above=3pt] at (0.9,0) {$\eta$: $0 \to 1$};
+
+  % ---- exact identities ----------------------------------------------
+  \draw[exact] (nr.east) -- (els.west)
+    node[lab, midway, below=2pt] {$\equiv$ at $\eta_{s,i} = 0$};
+  \draw[exact] ($(els.north)+(-0.6,0)$) -- ($(cge.south)+(0.6,0)$)
+    node[font=\sffamily\scriptsize, pos=0.45, left=4pt, align=right] {$\equiv$ in its\\single-wage form};
+  \draw[exact] (frw.north) -- (leo.south)
+    node[lab, midway, right=4pt] {$\equiv$ any $(\theta,\epsilon,\sigma)$};
+
+  % ---- limit: elastic supply -> fixed real wage ----------------------
+  \draw[limit] ($(els.north)+(0.6,0)$) -- ($(frw.south)+(-0.6,0)$)
+    node[font=\sffamily\scriptsize, pos=0.45, right=4pt] {$\eta_{s,i} \to \infty$};
+
+  % ---- outer axes -----------------------------------------------------
+  \draw[arr] (-2.4,-\rowy-0.8) -- (-2.4,2.6);
+  \draw (-2.4,0)      -- (-2.22,0);
+  \draw (-2.4,\topy)  -- (-2.22,\topy);
+  \draw (-2.4,-\rowy) -- (-2.22,-\rowy);
+  \node[rowlabel, rotate=90] at (-2.75,0.85)   {aggregate};
+  \node[rowlabel, rotate=90] at (-2.75,-\rowy) {sectoral};
+
+  \draw[arr] (-2.4,-\rowy-1.3) -- (11.55,-\rowy-1.3);
+  \node[axlabel, below] at (4.58,-\rowy-1.35) {labor-market flexibility};
+
+  % ---- legend ---------------------------------------------------------
+  \begin{scope}[shift={(-0.6,-\rowy-2.3)}, font=\sffamily\scriptsize]
+    \draw[exact]  (0,0)   -- (0.9,0);
+    \node[right] at (1.0,0) {exact identity};
+    \draw[limit]  (3.6,0) -- (4.5,0);
+    \node[right] at (4.6,0) {limit, never attained};
+    \draw[switch] (8.0,0) -- (8.9,0);
+    \node[right] at (9.0,0) {switch between closures};
+  \end{scope}
+
+\end{tikzpicture}
+\caption{A map of closure choices along the short-run (labor-market)
+  axis. Columns order the closures by increasing flexibility of employment;
+  the aggregate row collects the single-wage closures, the sectoral row the
+  closures with $N$ sectoral wages. All links hold under demand-only shocks
+  (Appendix~\ref{app:equivalences}). Solid double arrows are exact
+  identities: the elastic labor supply closure is the no-reallocation case
+  at $\eta_{s,i} = 0$, and in its single-wage form it is the standard CGE
+  closure for every elasticity; the Leontief closure is the fixed real wage
+  closure at the Leontief limit and yields the same economy at any
+  substitution elasticities, hence the shared column. The dashed arrow is a
+  limit: as $\eta_{s,i} \to \infty$ the elastic closure approaches the fixed
+  real wage without reaching it. The dotted arrow is a switch, not a
+  continuum: the reallocation closure takes only the endpoints $\eta = 0$
+  (no reallocation) and $\eta = 1$ (standard CGE). The dashed box marks a
+  sectoral fixed-real-wage closure that is possible but not built here.}
+\label{fig:flexibility-map-alt}
+\end{figure}

@@ -1,0 +1,181 @@
+%" =====================================================================
+%  Revision draft --- BeyondHulten / Metroeconomica
+%  Working title: Which Short Run? Whose Money? Closure Choice in
+%                 Input-Output Models of the Socio-Ecological Transformation.
+%  Basis: git/ai/RA/publishing/TeXTemplate (universal research-paper template)
+%  Compile: latexmk -pdf main.tex   (see README.md for the container recipe)
+% =====================================================================
+\documentclass{article}
+
+% ---- Switches (flip per venue) --------------------------------------
+\newif\ifreviewmode   % true = double spacing + visible todonotes (submission)
+\newif\ifendfloats    % true = floats deferred to end of document (journal layout)
+\reviewmodetrue
+\endfloatstrue    % TRUE for the submission build: floats move to the end.
+
+% ---- Page ------------------------------------------------------------
+\usepackage[a4paper, total={6in, 9in}]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{parskip}
+\usepackage{setspace}
+% spacing is applied after \maketitle so the title block stays single-spaced
+
+% ---- Graphics & drawing ----------------------------------------------
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, shapes.geometric}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{lscape}
+
+% ---- Math & theorems --------------------------------------------------
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs}
+\usepackage{array}   % >{...} column specifiers (ragged-right table cells)
+\usepackage{multirow} % row-spanning cells (Table 4 collapses shared solutions)
+\usepackage{colortbl} % shaded guide rows (Table 6)
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+
+% macros used by Appendices A and B (from equivalence.tex)
+\newcommand{\Lbar}{\bar{L}}
+\newcommand{\one}{\mathbf{1}}
+
+% ---- Notes & boxes ----------------------------------------------------
+\ifreviewmode
+  \usepackage{todonotes}
+\else
+  \usepackage[disable]{todonotes}
+\fi
+\usepackage{framed}
+
+% ---- Bibliography (biblatex + biber, authoryear) -----------------------
+\usepackage[
+backend=biber,
+style=authoryear,
+isbn=false, url=false, doi=false, eprint=false,
+natbib=true,
+giveninits=true,
+uniquelist=false
+]{biblatex}
+\addbibresource{references.bib}
+
+% ---- Authors & affiliations -------------------------------------------
+\usepackage{authblk}
+
+% ---- Floats to end of document ----------------------------------------
+\ifendfloats
+  \usepackage[markers,nolists]{endfloat}
+\fi
+
+% ---- Links & appendix --------------------------------------------------
+\usepackage{hyperref}
+\usepackage[toc,title]{appendix}
+
+% ---- Date format -------------------------------------------------------
+\renewcommand{\today}{~%
+  \ifcase \month
+    \or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\space\number \year}
+
+\newcommand{\papertitle}{Which Short Run? Whose Money? Closure Choice in Input--Output Models of the Socio-Ecological Transformation}
+\title{\papertitle\thanks{We thank Lukas Cserjan and Bernhard Sch\"utz for their extensive feedback as well as David Baqaee, Anna Hornykewycz, Stefan Steinerberger, Rafael Wildauer and Jan David Weber for their responses to our queries and the comments on specific aspects of this manuscript. All remaining errors are our own. We provide an open-source toolbox, \href{https://github.com/theplatters/OpenCGE}{OpenCGE}, with which applied modelers can combine the closures studied here with supply and demand shocks of their choice on their own input--output table. The code to replicate this paper builds on this toolbox and is available at \url{https://github.com/theplatters/which-short-run-whose-money}. In the course of the preparation of this manuscript, several large language models (LLMs) were consulted to discuss and develop different aspects of the formal analysis and the technical implementation. All responsibility for the final manuscript lies with the authors.}}
+
+\author[1]{Jakob Kapeller}
+\author[2]{Franz Scharnreitner}
+\affil[1]{\small{Corresponding author, Institute for Socio-Economics, University of Duisburg-Essen and \linebreak Institute for Comprehensive Analysis of the Economy (ICAE), Johannes Kepler University Linz, \href{mailto:jakob.kapeller@uni-due.de}{jakob.kapeller@uni-due.de}}}
+\affil[2]{\small{Institute for Comprehensive Analysis of the Economy (ICAE), Johannes Kepler University Linz}}
+\date{\today}
+
+\begin{document}
+{\singlespacing\maketitle\par}
+\ifreviewmode\doublespacing\fi% title and affiliation stay at 100% in every version
+
+\begin{abstract}
+Input--output models are widely used to estimate the economic effects of green investment, industrial policy and other structural programs aiming to achieve a socio-ecological transformation. This practice often treats the model as a neutral analytical device, where it is not: every estimate presupposes a closure --- an assumption about how factor markets clear and how expenditure is financed. Such closure assumptions carry substantial economic content and can have a strong impact on estimated effects. Using the decarbonization of the German residential housing stock as an example, we explore how typical closure choices on labor markets and financing affect estimates, with the largest differences concentrated in one interaction: a fixed wage and external finance. All estimates are produced within a single shared model core, available open-access, so that the differences we report reflect closure choice alone, making it easier for transformation research to consider a broader spectrum of input--output modeling approaches.
+
+\textbf{Keywords:} input--output modeling, general equilibrium, closure choice, green investment, socio-ecological transformation
+
+\textbf{JEL-Codes:} C67, C68, D57, E24
+\end{abstract}
+
+\newpage
+
+%%% SECTION INPUTS %%%
+
+\input{sections/(1)introduction}
+\input{sections/(2)transformation-to-io}
+\input{sections/(3)two-primitive-questions}
+\input{sections/(4)kernel-closures-financings}
+\input{sections/(5)application}
+\input{sections/(6)beyond-demand-only}
+\input{sections/(7)conclusion}
+
+\section*{Data and code availability}
+\begin{sloppypar}
+The input--output data for Germany employed in this paper is publicly available:
+the 2019 input--output account (revision 2019), $71$ product groups at basic
+prices, documented in Appendix~\ref{app:pipeline}. The model is implemented in the
+OpenCGE toolbox, available at \url{https://github.com/theplatters/OpenCGE}. The replication materials are available at \url{https://github.com/theplatters/which-short-run-whose-money}.
+\end{sloppypar}
+
+\section*{Funding}
+This paper has benefited from funding provided by the \textit{Hans B\"ockler
+Foundation} under grant number 2021-544-2, by the \textit{Linz Institute for
+Transformational Change (LIFT\_C)} under grant number 2022-1-114 as well as by
+\textit{Dezernat Zukunft}.
+
+\section*{Conflict of interest}
+The authors report no conflicts of interest associated with the content of this paper.
+
+\medskip
+\printbibliography
+\ifendfloats\processdelayedfloats\fi
+
+\appendix
+\begin{refsection}
+
+\setcounter{section}{0}
+\setcounter{table}{0}
+\setcounter{equation}{0}
+\setcounter{figure}{0}
+\ifendfloats
+  \setcounter{postfigure}{0}
+  \setcounter{posttable}{0}
+  \renewcommand{\theposttable}{A\arabic{posttable}}
+  \renewcommand*{\theHposttable}{appendix.posttable.\arabic{posttable}}
+  \renewcommand{\thepostfigure}{A\arabic{postfigure}}
+\fi
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand*{\theHtable}{\thetable}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand*{\theHfigure}{\thefigure}
+\renewcommand{\theequation}{A\arabic{equation}}
+\renewcommand*{\theHequation}{\theequation}
+
+\input{sections/(A)equivalences}
+\input{sections/(B)model-closures-proofs}
+\input{sections/(C)data-pipeline}
+\input{sections/(D)matrix-variants}
+\input{sections/(E)pricing-door}
+\printbibliography[title={Appendix references}]
+
+\end{refsection}
+
+\ifendfloats
+  \renewcommand{\thetable}{A\arabic{table}}
+  \renewcommand*{\theHtable}{\thetable}
+  \renewcommand{\thefigure}{A\arabic{figure}}
+  \renewcommand*{\theHfigure}{\thefigure}
+  \renewcommand{\thepostfigure}{A\arabic{postfigure}}
+  \renewcommand{\theposttable}{A\arabic{posttable}}
+  \renewcommand*{\theHposttable}{appendix.posttable.\arabic{posttable}}
+  \processdelayedfloats
+\fi
+
+\end{document}

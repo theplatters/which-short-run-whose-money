@@ -1,0 +1,370 @@
+% =====================================================================
+% Response --- Reviewer 1
+% Source: docs/reviews/metro-rev1.docx
+% Point map: docs/DOCS_ASSESSMENT.md, Stage 3 (R1.1-R1.9).
+% Status: general response (R1.0) written 2026-10-22 (proofread pass: typos,
+%         parallelism, \loc added). All points R1.0-R1.11 written; \loc pass 2026-10-24.
+% 2026-10-22: every \refcom now quotes the report VERBATIM and in full (one block
+%         per review paragraph, nothing elided; his own ellipses survive as \dots).
+%         Inner quotes are single (`...'), since \refcom already supplies the outer
+%         pair; the report's own paragraph headings are not quoted.
+% =====================================================================
+\section*{Reviewer 1}
+
+\subsection*{R1.0 --- General assessment}
+\refcom{Firstly, I find the paper challenging to follow, and its current structure
+does not facilitate the reader's focus on the primary message. At this
+point, I am unable to discern the central argument the authors intend to
+convey.
+
+The paper compares the IO model with two main configurations of CGEs, one
+incorporating labour slack, both of which appear to embed capacity
+constraints, characteristic not only of CGE models but also of other
+macroeconomic models when short-run macro closures are applied. I find the
+paper interesting and of interest to the reader of Metroeconomica. However I
+have few points of improvements the authors would like to take into
+consideration under revision stage.
+
+I go straight to the main points that I believe need some restructuring.}
+
+\response Before proceeding, let us emphasize that we agree with both reviewers that our
+original narrative was somewhat ill-focused -- not only because, given parts
+of our original framing, it did not spotlight the most important aspects, but
+also because it led us to ignore certain foundational aspects that damaged the
+credibility of the original text. Against this backdrop, we decided to rewrite
+the whole draft, focusing on a more exhaustive and general treatment of our
+main object of interest: the intersection between foundational assumptions of
+input-output modeling and more pragmatic applications in the field of
+transformational studies that rely on input-output models as a main workhorse.
+While being more encompassing in terms of the model space discussed, this
+fully rewritten new version allows for discussing our original question in a
+more useful and better substantiated way.
+
+Concretely, the revision restates the comparison as two primitive questions --- the
+nature of the short run and the question of who bears the cost --- and organizes it
+as a matrix of five labor-market closures and three financing closures, taking the
+decarbonization of the German residential sector as an example for how input-output
+modeling and transformation research might interact and how closure choices moderate
+this interaction. The underlying framework is stated once for the open economy, with
+imported intermediates and product taxes carried as explicit leaks rather than
+absorbed into demand, and with the equivalence results that locate the two poles of
+the closure family inside one model. Two extensions probe the limits of the
+framework: a Kaldor--Verdoorn version in which technology responds to capacity utilization, and a
+markup version in which profits enter as a second income stream. The appendix apparatus documents the model core, the equivalence proofs, the calibration and the data
+pipeline.
+
+In this light, we are extremely thankful for the constructive and direct
+feedback received from the reviewers, which guided us in rethinking the main
+setup of our narrative.
+\loc{Sec.~1 (the thesis and the framing); Sec.~3 (the two primitive questions, the closure family and Table~2); Sec.~5 (aggregate and sectoral results).}
+% AG (Oct 2026): location pointers finalized 2026-10-25.
+
+\subsection*{R1.1 --- Verbal description of the model; static vs.\ dynamic}
+\refcom{First I would like to understand the structure of the CGE model. It would be
+nice to say verbally what are the main features of the model. From my
+understanding, the default model is a closed economy with full employment
+and a hierarchical CES function. This setup results in a fixed labour supply
+and fully flexible wages, essentially representing a conventional vertical
+labour supply curve. Labour is the sole primary factor of production, so
+capacity constraints originate here; the same would apply if capital stock
+were included and held constant.
+
+Another thing should be clarified is whether the model is static or dynamic.
+Here my understanding is that the authors are running a static model with
+fixed capacity. Basically a short-run economy with no adjustment towards a
+new-steady state.}
+\response{The revised manuscript now describes the model(s) extensively in words and conceptual terms before it is set up formally. Section~3 states the two closure questions and the family of labor-market closures they generate, and the opening of Section~4 states the static model core these closures share: a production network calibrated to an input--output table, cost-minimizing producers, a utility-maximizing household, and labor as the only primary factor (Sec.~4.2). Two things the comment asks about are now explicit. First, the model is static: the impulse is evaluated in a single short-run
+equilibrium on a fixed production network. There is no transition and no
+long-run equilibrium in the model -- no capital accumulation and no
+intertemporal margin -- so the steady-state reading of the program is outside
+its scope. Second, the characterization of the default model
+as a closed economy in full employment with a vertical labor supply curve
+describes one column of our matrix -- the standard CGE closure -- rather than
+the paper as a whole, and the revision sets that closure beside four others,
+including the elastic labor-supply and the employment-adjustment closures; the
+calibration itself is (now) to the open economy of Germany, with imported
+intermediates and indirect taxes booked as explicit leaks (see also our response to R2.5). To make room for the verbal exposition, some of the formal material (first-order conditions, proofs and the equivalence results) has been moved into two new appendices.}
+\loc{Secs.~2--4; Apps.~A and B.}
+
+\subsection*{R1.2 --- Calibration process and summary tables}
+\refcom{An additional thing I would like to understand is the calibration process.
+How the model has been calibrated? Is the model exactly replicating the data
+observed in the IO table? Furthermore here it would be interesting to
+present key economic variables from Germany's IO table in a summary table
+such as the share of intermediate output relative to total output, the share
+of value added to total output, etc. would enhance clarity. Including
+elasticity values in a table would further improve readability.}
+%DONE [AG, 2026-10-24]: the account summary is in Appendix C
+% (tables/tableA6_io-summary.tex), and the elasticity table is in Appendix B.1
+% (tables/tableA3_parameters.tex). Both are in the appendices, so the main-text
+% table numbering is unchanged. This standalone letter refers to their locations.
+\response{Thank you for requesting a clearer account of the calibration. Sections~4.1--4.2
+explain how the model is calibrated to Germany's 2019 input--output table,
+covering 71 sectors. Baseline prices are normalized to one, sectoral outputs
+are expressed relative to aggregate value added, and observed expenditure and
+cost shares determine the weights of the household and production CES
+functions. The substitution elasticities are imposed separately; they are not
+estimated from the input--output table. The step from the published table to the
+calibrated shares --- the intermediate-use matrix, the import split, the cost shares and
+the value-added decomposition --- is documented in Appendix~C, together with the
+consistency checks it passes.
+
+The calibration reproduces baseline sectoral gross output and domestic
+household demand, with all goods markets clearing at the reference allocation.
+This requires distinguishing domestic intermediate deliveries from imported
+intermediates and product taxes: only the domestic intermediate bill generates
+demand for domestic output. The household consumption shares and saving rate
+are then calibrated consistently with this accounting. Appendix~C documents
+these steps and the associated consistency checks.
+
+One point of the accounting deserves an explicit correction. An earlier version
+of this check netted the import and product-tax margins recorded on final use
+rather than those recorded on intermediate use, which left an apparent
+production--expenditure gap of about 5.4\,percent. Only the intermediate margins
+belong in the deduction: the final-use margins are recorded in their own columns
+and are not part of domestic final deliveries. With the intermediate margins
+netted, expenditure-side GDP equals production and income exactly
+(Appendix~C.7).
+
+To make the calibration easier to assess, we have added two tables to the
+appendices. The summary table in Appendix~C reports gross output, value added,
+domestic intermediate use, imported intermediates and intermediate product
+taxes, together with their shares and the three measures of GDP. The table in
+Appendix~B.1 lists the elasticities used in the analysis, which are imposed
+rather than estimated. We present these tables alongside the calibration
+details to keep the main text focused on the comparison.}
+\loc{Secs.~4.1--4.2; Appendix~C (the summary table) and B.1 (the elasticity table).}
+% RESOLVED 2026-10-24: both tables are in the manuscript -- the account summary as Table A5
+% at the end of Appendix C.7 (tables/tableA6_io-summary.tex), the elasticity table as Table A3 in
+% Appendix B.1 (tables/tableA3_parameters.tex). Labor-closure variants: Appendix D.
+
+\subsection*{R1.3 --- The Keynesian approach (Type I vs Type II multipliers)}
+\refcom{The purpose behind the Keynesian approach in section 2.1 remains unclear to
+me. It seems you are distinguishing between Type I and Type II multipliers
+(see Miller and Blair, 2019). If I have interpreted this correctly, Type II
+multipliers incorporate certain Keynesian features, which I agree, but the
+ultimate objective of this distinction needs clarification.}
+\response The revised manuscript does not use the Type I/Type II vocabulary as a framing
+device -- the paper's first question is now stated as the choice of the short
+run -- but the distinction does map onto the model, and it is worth saying
+how. On the standard definition our model is a Type II model throughout: section 2 states the extension of the inter-industry table to household consumption and applies it throughout, and household consumption depends on disposable resources --- the wage bill net of taxes and the net external transfer --- so the matrix that generates our multipliers carries that household round. Appendices~A and~B state and derive the equivalence on exactly that closed system. On categorization we would add that while a Type II model is sometimes conceived as ``more Keynesian'' due to higher multipliers (for wage-pinned closures), the Type I closure would assume that all additional income resulting from additional spending leaks, which is a key reason why it had fallen somewhat out of fashion.
+\loc{Sec.~2 (the household-consumption extension); Sec.~4 (the household block); Apps.~A and~B.}
+
+
+\subsection*{R1.4 --- The exogenous shock and the near-zero aggregate effect}
+\refcom{Another aspect I observed concerns the exogenous shock. This configuration
+is a conventional short-run economy. As the primary factor cannot adjust,
+the impact manifests only through prices. Consequently, as illustrated in
+the chart, the CGE model's effect on GDP is virtually zero, assuming the
+results are reported as percentage changes from base values.}
+\response{We now document more clearly that the exogenous impulse is absorbed by prices
+only where the labor market is sectoral, or where additional dynamics move
+prices (Sections~5 and~6). Demonstrating the aggregate neutrality of the
+standard CGE model under a demand-only shock serves the paper's purpose of
+showing what different closure choices imply, and it is a useful addition to
+the portfolio of scenarios studied.}
+\loc{Secs.~5--6; Apps.~A and~B.}
+% AG (Oct 2026): cell promoted out of R1.7 -- the comment had no entry in the Stage-3 point map.
+
+\subsection*{R1.5 --- Price changes, crowding-in/out and the open economy}
+\refcom{As indicated by the sentence: `In this context, increasing prices again
+imply crowding-out effects for \dots{}.. crowding-in effect in terms of
+quantity to match the desired output adjustment,' price changes are central
+in this model and can generate both crowding-in and crowding-out effects. My
+understanding is that the model is also configured as a closed economy;
+otherwise, in an open economy, falling prices could stimulate exports,
+partially offsetting declines in output.}
+\response{Thanks for these hints; the sentence quoted belonged to a passage that no
+longer appears in the revision. The crowding-in/crowding-out intuition it
+carries does survive: it is stated in the outcome labels of Table~1 (Section~3)
+and in the winners/losers discussion of Section~5.2, rather than as a
+property of prices. On the open-economy
+point, the revision is explicit, though not in the direction the comment
+suggests: exports enter final demand as an exogenous component, so relative
+price movements do not feed back into export volumes in the reported design --
+an endogenous export demand is not implemented in the approaches discussed in the paper. What the open economy does carry is the import side: imported intermediates and imported final goods enter as explicit leaks, which routes part of the program's demand abroad, and one of the three financing
+columns is an external-debt variant,
+in which the program adds external income instead of displacing domestic
+demand.}
+\loc{Sec.~3 (Table~1, the outcome labels); Sec.~4 (the removed passage; imports and taxes as leaks); Sec.~5.2 (the winners/losers discussion).}
+% AG (Oct 2026): cell promoted out of R1.7.
+\subsection*{R1.6 --- Aggregate vs.\ sectoral results}
+\refcom{I would also try to differentiate and stress particularly more the
+differences between the results of the aggregate economic variables and the
+sectoral results. For the type of shock the authors are doing and given the
+model configuration adopted, in aggregate the economy is not sensitive to
+change in elasticity of substitution while these changes in price
+sensitiveness it matter a lot for sectoral outcome,}
+\response{Thank you for this suggestion. The revision separates aggregate results
+in Section~5.1 (Table~3) from sectoral results in Section~5.2
+(Figures~2--3), with detailed cell-by-cell panels in Appendix~D.
+The distinction matters because a small aggregate response can conceal
+substantial changes in the composition of production and in sectoral prices.
+For example, under no reallocation, glass output rises by about 12--14\,percent while its price rises by 22--28\,percent; with elastic sectoral labor
+supply, the corresponding increases are about 17--18\,percent in output
+and 10\,percent in price. These are differences between labor-market
+closures at the reported substitution elasticities, not estimates of
+substitution-elasticity sensitivity.
+
+We also qualify the role of substitution elasticities. In the common-wage
+closures at baseline technology, the demand-only shock leaves relative
+prices unchanged, so varying substitution elasticities cannot generate a
+substitution response. With sectoral wages, prices do move and household
+substitution becomes relevant, which is why the sectoral results in
+Section~5.2 report the consumption response alongside output and prices.
+The paper does not claim general aggregate insensitivity to every
+substitution parameter.
+
+Section~6 then shows the boundary of the demand-only equivalence: once
+productivity or markups respond to demand and prices move, the
+employment-adjustment and Leontief closures no longer generally coincide
+(Tables~5--6). The revised presentation thus distinguishes aggregate from
+sectoral outcomes and identifies the conditions under which substitution
+can affect them.}
+\loc{Secs.~5.1--5.2, Table~3 and Figures~2--3; Appendix~D (sectoral panels); Sec.~6, Tables~5--6 (pricing extensions).}
+
+\subsection*{R1.7 --- Labor-market slack and the wage-setting rule}
+\refcom{The discussion regarding labour market slack requires additional
+explanation. The authors mention analysing various forms of labour market
+slack, including a demand-driven CGE model and a calibrated approach. In the
+demand-driven scenario, an exogenous increase in employment is introduced
+based on input from the IO model. I am unsure about the rationale behind
+this scenario. Even absent a model, it is apparent that GDP would rise
+proportionally with employment increases, especially since price effects do
+not translate into changes in competitiveness. While at the aggregate level,
+differences between CGE and IO models are minimal and expected, at the
+sectoral level, outcomes may vary significantly due to price sensitivity,
+which depends on substitution elasticities.
+
+Although I do not perceive any advantage in the demand drive scenario above
+concerning labour market slack, the calibrated approach seems more
+promising. However, several aspects remain unclear. This model evidently
+allows for involuntary unemployment, resulting in an imperfect labour
+market. Accordingly, a wage-setting rule must be specified, yet the authors
+have not addressed this. Wages should no longer be determined solely by
+profit maximization; instead, some wage-setting mechanism such as fixed real
+or nominal wages should be implemented. Also a simple wage curve.
+
+Unless I have misunderstood the authors' approach, is it simply a matter of
+increasing labour supply by the number of unemployed persons, similar to the
+previous scenario but with different figures?}
+\response{The reviewer is right that the two original designs did not specify a
+labor-market mechanism: they injected additional factor resources
+exogenously, using either the IO result or an unemployment-based estimate.
+We have dropped both designs. The revised comparison instead states the
+labor-market closure explicitly and lets employment follow from it.
+
+In the employment-adjustment closure, three choices must be distinguished.
+The common money wage is normalized to $w=1$, which fixes the unit of
+account. The aggregate labor-supply constraint is dropped, so employment is
+endogenous, uncapped and determined by the labor required for equilibrium
+production. Separately, the net external transfer is fixed at $F=0$.
+Employment accommodation and the external-transfer restriction define the
+closure; the wage normalization alone does not supply a behavioral
+wage-setting mechanism. This is an assumption of available factor resources,
+not an estimate of how many unemployed workers can be mobilized.
+
+The role of the real wage also needs qualification. In the common-wage,
+one-factor constant-returns price block, relative prices and the real wage
+are determined by technology. At baseline technology, a demand-only shock
+therefore leaves the real wage at its reference value; it is not held there
+by an independently imposed real-wage peg. Appendix~B.5 states this result,
+and Appendix~B.2 records that the wage pin is a numeraire rather than a wage-setting rule, so a rule determining only the nominal scale cannot generate an additional real adjustment margin within that price block. These statements do not extend to the sectoral-wage closures or to
+the demand-dependent pricing extensions of Section~6.
+
+The elastic labor-supply closure provides a different adjustment mechanism:
+each sector has its own wage and a supply curve in the CPI-deflated real
+wage, with an explicit supply elasticity. It is a reduced-form supply
+relation, without a labor--leisure income effect, rather than an estimated
+unemployment wage curve. We therefore distinguish this closure from the
+employment-adjustment benchmark and do not claim to implement the wage-curve
+mechanisms discussed in the applied literature.}
+\loc{Sec.~3, Table~2 (closure comparison); Appendix~B.2 (the labor closures and the wage pin as numeraire) and B.5 (the demand-only reduction and the real-wage anchor); Sec.~6 (pricing extensions).}
+
+\subsection*{R1.8 --- Labor mobility and the unified wage rule}
+\refcom{Another question pertains to labour mobility. Under imperfect labour market
+conditions, does the model assume a unified wage rule to enable labour
+mobility across sectors?}
+\response{In the original version, labor supply was specified as a sector-specific quantity with a cap in every sector ($l_i \leq l_i^{\max}$), and the wage was sector-specific as well -- in the standard scenario and in both slack variants; a unified wage rule never appeared. That specification is exactly what the revised matrix now reports as its no-reallocation column. The case the comment asks about -- labor moving
+across sectors at one flexible wage with total employment fixed -- is new in
+the revision, where it is the standard CGE closure and the reference against
+which the other columns are read. The two are the poles of a single axis: the
+reallocation parameter runs from the immobile case to full reallocation, and
+full reallocation coincides with the conventional CGE closure, so that the
+treatment of labor mobility is now an explicit choice rather than an inherited
+default. Section~3 states the family; Appendix~B derives each closure and
+their overlaps.}
+\loc{Sec.~3 (the five labor-market closures); Sec.~4 (the household and labor-market blocks); Appendix~B.}
+% AG (Oct 2026): his draft claimed a unified wage rule was 'the case for the full reallocation version' in the
+% original submission. Checked against paper/submission-metro/submission.tex (and submission-anon.tex): labor
+% enters as $l_k \leq l_k^{\text{max}}$ in the profit-max and cost-min problems, the wage is indexed by sector
+% in the objective, the wage function maps to a vector of sectoral wages, and the household budget is
+% $\sum_u w_u l_u$; 'reallocation' occurs only in generic prose. R2's report reads the same submission the same
+% way. His original sentence is kept verbatim below.
+% JK ORIGINAL: \response{In our original submission this was the case for the full reallocation version that is now shown to coincide with the conventional CGE. In the no-reallocation closure instead, that was also present in the original manuscript, labor supply and, hence, also wages are sector-specific, which is now hopefully more clearly explained in our new manuscript.}
+\subsection*{R1.9 --- Structure and central argument}
+\refcom{What I also want to say is that differences between IO and CGE are known in
+the literature, I think the authors should try to be more precise on the
+message they want to sell and give an immediate focus of the paper to the
+reader.}
+\response{The revised manuscript is motivated by an argument on the importance of input-output models for transformation research, organized around this argument and develops a more general inventory of models for discussing it. Section~1 states the two questions that structure the paper -- the nature of the short run and the role of money -- together with the thesis that follows from them. Section~3 turns those two questions into the closure matrix (Table~2) that the rest of the paper works through, and Sections~5 and~6 evaluate one and the same green-investment impulse across
+that matrix, first on the matrix's own terms and then once capacity and
+distribution are allowed to respond. The exposition of the shared model core in Section~4 is kept minimal, so that it supports the comparison rather than
+preceding it.}
+\loc{Sec.~1; Sec.~3 (Table~2); Secs.~5--6.}
+
+\subsection*{R1.10 --- McGregor, Swales \& Yin (1996)}
+\refcom{I also advise the author to read this paper:
+
+Peter G. McGregor, J. Kim Swales, Ya Ping Yin. 1996. A LONG-RUN
+INTERPRETATION OF REGIONAL INPUT-OUTPUT ANALYSIS. Journal of regional
+science.
+
+In this paper you will see that if you allow for involuntary unemployment
+and full economic adjustment you will get into a new steady state with
+IO-Type of results. That is with zero changes in prices in the long-run.
+Naturally in the long-run multiplier will be much larger than an IO case.}
+\response{We are grateful for this reference, which provides a useful dynamic
+perspective on demand-determined quantities. The connection to our
+employment-adjustment closure and its Leontief fixed-coefficient variant is
+that output accommodates demand while prices remain unchanged under the
+baseline demand-only shock. Our static benchmark equals the corresponding
+household-closed input--output multiplier; it does not establish a multiplier
+larger than that benchmark.
+
+The distinction is the adjustment process. Our model compares static
+equilibria at a single horizon, without investment-driven capacity growth or
+a transition to a new steady state. We therefore cite
+\citet{McGregor.1996} in Sections~3 and~7 as a perspective for a dynamic
+reinterpretation of the comparison, rather than as a mechanism or long-run
+result reproduced by our model.}
+\loc{Secs.~3 and~7; Appendix~B (the demand-only multiplier equivalence).}
+
+\subsection*{R1.11 --- Minor comments}
+\refcom{Minor comments:
+
+• Page 5: The sentence `The classical approach to using input-output tables
+for purposes of prediction and, relatedly, planning\dots{}.' is convoluted
+and requires revision.
+
+• Page 16: The second paragraph begins with `the cge approach.' it appears
+incomplete and needs additional clarification.
+
+• Figure 3: Is the horizontal axis representing sectors?}
+%DONE [AG, 2026-10-24]: answered by noting that the figure is obsolete and where the sectoral evidence now lives. Former proposal: "The horizontal axis of the sectoral figures is a sector index; the program sectors are marked by shading and point area rather than by printed numbers." Figures are final and verified (see the comment below). Former FIXME: also answer the Figure 3 axis question and identify the replacement figure.
+\response{Thanks for these hints. The sentence quoted no longer appears, and the passage the referee
+found incomplete has been replaced by the verbal description of the model in
+Section~4. The figure the comment refers to no longer forms part of the paper as such:
+the sectoral evidence is now reported as Figures~2--3 and as the cell-by-cell panels of
+Appendix~D. For completeness, Figure~2 is organized in three panels of characteristic
+sectors --- a program sector, an upstream supplier and a consumer service, each
+named at the top of its panel --- with the labor closures on the horizontal axis
+and the financing outcomes marked by line styles (F1 against F2 = F3 outside the
+Leontief closure, F3 inside it); Figure~3 plots sectoral output changes against
+price changes, with darker points marking program sectors and point area
+proportional to the pre-program Domar weight. The Appendix~D panels are indexed
+by sector and number the program sectors.}
+\loc{Sec.~2 (the sentence quoted); Sec.~4 (the verbal model description); Figures~2--3 and Appendix~D (the
+placement of the sectoral evidence).}
+% 2026-10-25: figure axes and point encodings corrected against the current Section 5 captions.
+

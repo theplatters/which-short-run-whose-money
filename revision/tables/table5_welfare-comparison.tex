@@ -1,0 +1,104 @@
+% =====================================================================
+% Table 5 --- welfare comparison across the closure matrix (GENERATED)
+% Sources: runs/matrix_5x3-<labor>-<financing>[-etas{05,1,2}]/manifest.toml
+% Verification kernel: OpenCGE 1.0.0; source design, inputs, kernel-tree consistency and all recorded metrics checked.
+% ---------------------------------------------------------------------
+% Do NOT edit by hand. Regenerate with:
+%   julia --project=. experiments/make_table5_welfare.jl
+% Layout adopts the COLLAPSING ROUTINE of table4_results-5x3.tex: the two
+%   coincidences the table states are PRINTED ONCE -- F2/F3 share one cell in
+%   the three flexible-wage columns (\multirow, centred across the two rows,
+%   the rule between them a \cmidrule over the GAMMA/DELTA pair only) and the
+%   employment-adjustment and Leontief columns share one \multicolumn{2} cell per
+%   row. check_collapses() asserts both on the PRINTED strings, so a broken
+%   equivalence aborts the run. Column widths and the cell contents are Table
+%   5's own; only the collapse/centre/rule grammar is Table 4's.
+% W_C is the manifest field; W_D, W_CES and W_CES* are computed here and
+%   gated against runs/<id>/manifest.toml (consumption_rel, tol 1e-6). No run
+%   directory is created or modified, and no number is hand-typed.
+% =====================================================================
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{3.5cm} | >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.0cm}@{}}
+\toprule
+\textbf{Financing closure}
+& \textbf{No-reallocation}\newline \scriptsize immobile labor, sectoral wages
+& \textbf{Standard CGE}\newline \scriptsize one flexible wage, mobile labor
+& \textbf{Elastic labor supply}\newline \scriptsize sectoral supply on the real wage\newline {\footnotesize\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.05cm}@{\hspace{3pt}}>{\raggedleft\arraybackslash}p{2.2cm}@{}}
+& $\eta_s \in [0.5,2]$\end{tabular}}
+& \textbf{Employment adjustment}\newline \scriptsize wage pinned, employment uncapped
+& \textbf{Leontief closure}\newline \scriptsize wage pinned, quantities absorb
+\\
+\midrule
+\textbf{F1}\newline \scriptsize repurposing of consumption
+& \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$W_C$ & $+0.10$ \\
+$W_D$ & $-0.01$ \\
+$W_{CES}$ & $-0.25$ \\
+$W_{CES^*}$ & $+0.42$ \\
+$W_{L}$ & $+0.42$ \\\end{tabular}& \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$W_C$ & $+0.14$ \\
+$W_D$ & $+0.08$ \\
+$W_{CES}$ & $-0.28$ \\
+$W_{CES^*}$ & $+0.53$ \\
+$W_{L}$ & $+0.53$ \\\end{tabular}& \begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.05cm}@{\hspace{3pt}}>{\raggedleft\arraybackslash}p{2.2cm}@{}}
+$W_C$ & $+0.42$--$+0.58$ \\
+$W_D$ & $+0.26$--$+0.40$ \\
+$W_{CES}$ & $-0.04$--$+0.06$ \\
+$W_{CES^*}$ & $+0.71$--$+0.85$ \\
+$W_{L}$ & $+0.58$--$+0.64$ \\\end{tabular}& \multicolumn{2}{|>{\centering\arraybackslash}p{4.05cm}}{\begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$W_C$ & $-0.08$ \\
+$W_D$ & $-0.09$ \\
+$W_{CES}$ & $-0.45$ \\
+$W_{CES^*}$ & $+0.35$ \\
+$W_{L}$ & $+0.46$ \\\end{tabular}}\\
+\cmidrule(lr){1-4}\cmidrule(lr){5-6}
+\textbf{F2}\newline \scriptsize refinancing via taxes
+& \multirow{7}{2.0cm}[\dimexpr\baselineskip/4\relax]{\centering \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$W_C$ & $-1.98$ \\
+$W_D$ & $-0.03$ \\
+$W_{CES}$ & $-0.32$ \\
+$W_{CES^*}$ & $+0.51$ \\
+$W_{L}$ & $+0.51$ \\\end{tabular}}& \multirow{7}{2.0cm}[\dimexpr\baselineskip/4\relax]{\centering \begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$W_C$ & $-1.82$ \\
+$W_D$ & $+0.08$ \\
+$W_{CES}$ & $-0.29$ \\
+$W_{CES^*}$ & $+0.54$ \\
+$W_{L}$ & $+0.54$ \\\end{tabular}}& \multirow{7}{3.5cm}[\dimexpr\baselineskip/4\relax]{\centering \begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.05cm}@{\hspace{3pt}}>{\raggedleft\arraybackslash}p{2.2cm}@{}}
+$W_C$ & $-1.57$--$-1.39$ \\
+$W_D$ & $+0.27$--$+0.41$ \\
+$W_{CES}$ & $-0.06$--$+0.05$ \\
+$W_{CES^*}$ & $+0.77$--$+0.88$ \\
+$W_{L}$ & $+0.63$--$+0.67$ \\\end{tabular}}& \multicolumn{2}{|>{\centering\arraybackslash}p{4.05cm}}{\begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$W_C$ & $-1.53$ \\
+$W_D$ & $+0.30$ \\
+$W_{CES}$ & $-0.07$ \\
+$W_{CES^*}$ & $+0.76$ \\
+$W_{L}$ & $+0.62$ \\\end{tabular}}\\
+\cmidrule(lr){5-6}
+\textbf{F3}\newline \scriptsize external finance
+& & & & \multicolumn{2}{|>{\centering\arraybackslash}p{4.05cm}}{\begin{tabular}{@{}l@{\hspace{3pt}}r@{}}
+$W_C$ & $+2.26$ \\
+$W_D$ & $+3.20$ \\
+$W_{CES}$ & $+2.83$ \\
+$W_{CES^*}$ & $+3.66$ \\
+$W_{L}$ & $+1.70$ \\\end{tabular}}\\
+\bottomrule
+\end{tabular}
+\caption{Welfare comparison across different closures in the closure matrix.
+The variables reported in each cell are welfare estimates of an identical
+allocation, all in percent against the baseline. $W_C$ is the
+household-consumption index of Table~\ref{tab:results-matrix}; $W_D$ the
+quantity index of demand over $c^{h}+g^{G}+g$;
+$W_{CES}$ the CES evaluation of the change in that bundle at the \emph{baseline}
+tastes (public demand included, both bundles valued at the dated preferences);
+$W_{CES^*}$ the same comparison at the household's \emph{adopted} (post-program)
+tastes. $W_{L}$ the leisure-augmented form, also charging the program's extra work
+hours.}
+\label{tab:welfare-comparison}
+\end{table}

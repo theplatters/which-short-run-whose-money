@@ -1,0 +1,79 @@
+% =====================================================================
+% Appendix E --- Pricing extensions: input demands, accounting and robustness
+% ---------------------------------------------------------------------
+% Job: the input-demand equations and profit accounting for Section 6,
+%      with numerical checks and the all-sector productivity counterfactual.
+% Code: OpenCGE@src/closures/pricing/pricing.jl, OpenCGE@src/core/equilibrium.jl
+%      (_mobile_market_demand, _cost_minimizing_labor), OpenCGE@src/core/
+%      diagnostics.jl (gdp_components, retained_profit); the gate lives in
+%      experiments/run.jl (evaluate_gates). Records: ADR-0029, ADR-0030, ADR-0031.
+% =====================================================================
+\section{Pricing extensions: input demands, accounting and robustness}\label{app:pricing-extensions}
+
+This appendix gives the input demands and profit-accounting identity for the
+pricing extensions in Section~\ref{sec:beyond-demand-only}, followed by the
+results when productivity effects extend to all sectors.
+
+\subsection{Input demands}\label{app:pricing-hooks}
+Sector $i$ has the CES unit cost
+\begin{equation}\label{eq:app-unit-cost}
+  c_i \;=\; \Bigl[\,(\mathcal{A}_i^{H})^{\varepsilon-1}\bigl(\alpha_i\,w_i^{1-\varepsilon}
+     + (1-\alpha_i)\,P_i^{1-\varepsilon}\bigr)\Bigr]^{\frac{1}{1-\varepsilon}}.
+\end{equation}
+A firm producing $q$ incurs cost $q\,c_i(p,w_i;\mathcal{A}_i^{H}(y_i))$, taking aggregate sector output $y_i$ as given. Its marginal cost is therefore $c_i$, and the input-price derivatives below hold effective productivity fixed.
+At given output and effective productivity, Shephard's lemma applied to \eqref{eq:app-unit-cost} gives labor demand and, through the domestic fraction $a_i/(1-\alpha_i)$ of the composite (Section~\ref{subsec:optimization}), domestic intermediate demand:
+
+\begin{align}
+  L_i \;&=\; c_i^{\varepsilon}\,(\mathcal{A}_i^{H})^{\varepsilon-1}\,\alpha_i\,y_i\,w_i^{-\varepsilon},
+  \label{eq:app-labor}\\
+  x_{ui} \;&=\; p_u^{-\theta}\,\Omega_{iu}\;c_i^{\varepsilon}\,
+     (\mathcal{A}_i^{H})^{\varepsilon-1}\,P_i^{\theta-\varepsilon}\,a_i\,y_i ,
+  \label{eq:app-intermediate}
+\end{align}
+
+Firms pay wages $w_i$ and input prices $p_u$; the unit-cost term in these
+demands is marginal cost $c_i=p_i/\mu_i$. The common factor
+$k_i=c_i^{\varepsilon}(\mathcal{A}_i^{H})^{\varepsilon-1}P_i^{1-\varepsilon}$ also values
+imported intermediates $M^{\mathrm{int}}$ and product taxes on intermediate use
+$T^{\mathrm{int}}$ in the accounts. The price therefore enters the first-order
+conditions only through marginal cost: writing $p_i$ for $c_i$ in any demand term
+inflates it by $\mu_i^{\varepsilon}$ while leaving the price response untouched.
+
+\paragraph{Checks.} Every extension is reached by continuation from the
+demand-only model and re-solved from four starting points; a cell is accepted only if the four solutions agree to within $10^{-6}$ and the residual Jacobian has full rank. At
+$\delta=\kappa=0$ every priced cell reproduces its cell of
+Table~\ref{tab:results-matrix}, which is what lets the extension's incremental effects be calculated by
+subtracting the corresponding zero-extension row.
+
+\subsection{Profit income and accounting}\label{app:pricing-accounting}
+Distributed profits enter household income,
+$E=(1-\tau)\sum_i w_iL_i+F+(1-s_\pi)\Pi$, where $s_\pi$ is the share of profits
+retained before household saving, while retained profits enter the external account:
+\begin{equation}\label{eq:app-account}
+  sE+s_\pi\Pi+T^{\mathrm{int}}+M-(I+X)
+  = F+B_{\mathrm{gov}}.
+\end{equation}
+
+Income-side GDP is $\sum_i w_iL_i+\Pi$. In the three closures whose numeraire
+is the CPI --- no reallocation, standard CGE and elastic supply --- F2 and
+F3 remain indistinguishable in every row, so the transfer neutrality behind
+\eqref{eq:finstrument} survives the pricing extension.
+
+
+\subsection{Productivity effects in all sectors}\label{app:profiles}
+The main text applies the utilization elasticity to the goods sectors only. In
+the classification of the source table (NACE, CPA sections) these are sections
+A--F: agriculture, forestry and fishing; mining and quarrying; manufacturing;
+electricity, gas, steam and air conditioning; water supply, sewerage and waste;
+and construction. Services (sections G onward) keep $\delta = 0$ in the
+main-text runs.
+
+Table~\ref{tab:pricing-profiles} reports the all-sector counterfactual
+introduced in Section~\ref{subsec:pricing-capacity}, extending the productivity
+effects to services. The Leontief closure shows the same financing-dependent
+reversal of the real-wage response ($\Delta\omega$) as the employment-adjustment closure. The
+profile is therefore a statement about where returns are assumed to live, not
+about the size of the coefficient.
+
+\clearpage
+\input{tables/tableA8_pricing-profiles.tex}

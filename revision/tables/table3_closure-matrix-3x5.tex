@@ -1,0 +1,143 @@
+% =====================================================================
+% Table 3c --- the closure matrix, transposed
+% ---------------------------------------------------------------------
+% Revised 2026-10-18 (ADR-0033): the financing conditions name the balancing
+% variables. tau is the wage-income tax rate that finances the baseline
+% government purchases g^G in every closure (plus g under F2); B_gov (F3
+% only) is the programme booked externally; F is the net external transfer
+% (ADR-0019), endogenous on the mobile rows and zero on the fixed-wage rows.
+% Household expenditure and the common definitions are stated once, in the
+% caption.
+% LAYOUT (2026-10-18 restyle, Table 6 guide-rule convention):
+%   * a spanning "Labor-market closure" header over the five columns, thin
+%     grey vertical guide rules between the columns (\tableline, as in
+%     Table 6), and extra padding (\addlinespace) around every \midrule.
+%   * every block carries a grey italic signifier on its OWN line, with its
+%     conditions beneath it, ONE CONDITION PER LINE (\cnd, indented via
+%     \leftskip so a wrapped condition stays indented): \lblk (labor
+%     block), \fblk (financing block), \pblk (the fixed-coefficient production condition, used
+%     inside the Leontief labor block).
+%   * \lblk reserves a FIXED height \tbh and ends in a thin grey rule, so the
+%     labor block occupies the same vertical space in every cell and the
+%     rule plus the "financing" signifiers of a row sit on the SAME baseline
+%     in all five columns. The Leontief cell's extra "production" block
+%     lives inside that reserved height. \lblk sets \raggedright itself:
+%     \parbox resets the column's alignment to justified.
+%   * LINE BREAKS INSIDE CELLS: cells are p{} columns, where a literal \\
+%     is the ROW separator, NOT a line break. Use \cnd for condition lines;
+%     \sublabel (a \newline) is for the header and row labels only.
+% \tbh is the single tunable: raise it if a condition grows a line. An
+% "Overfull \vbox" warning in the log means it is too small.
+% Block labels: labor market: the labor closure condition (the column);
+% production: the substitution pin (only the Leontief column); financing:
+% the financing condition (the row). British spelling ("labor") kept.
+% =====================================================================
+\begin{table}[htbp]
+\centering
+\footnotesize
+\linespread{1.15}\selectfont% air between stacked conditions
+\definecolor{tableline}{gray}{0.72}% guide rules, as in Table 6
+\setlength{\tabcolsep}{3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\arraystretch}{1.3}
+\def\tbh{60pt}% reserved height of the labor block: the tallest of the five
+%   natural heights (the Leontief cell with its production condition, 58.6pt) plus
+%   a point of slack. Measured, not guessed: see the header comment.
+\newcommand{\tagline}[1]{\textcolor{black!60}{\textit{#1}}\par}
+\newcommand{\sublabel}[1]{\newline{\scriptsize\textcolor{black!70}{#1}}}
+\newcommand{\cnd}[1]{{\leftskip=0.3em\relpenalty=10000\binoppenalty=10000\relax #1\par}}
+\newcommand{\pblk}[2]{\vspace{3pt}\tagline{#1}#2}
+\newcommand{\lblk}[3]{\parbox[t][\tbh][t]{\linewidth}{\raggedright\tagline{#1}#2#3}\par
+  \vspace{3pt}{\color{tableline}\hrule height 0.3pt}\vspace{3pt}}
+\newcommand{\fblk}[2]{\vspace{3pt}\tagline{#1}#2}
+\newcolumntype{I}{!{\color{tableline}\vrule width 0.3pt}}% guide rule between columns
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.6cm}I
+                  >{\raggedright\arraybackslash}p{2.51cm}I
+                  >{\raggedright\arraybackslash}p{2.51cm}I
+                  >{\raggedright\arraybackslash}p{2.51cm}I
+                  >{\raggedright\arraybackslash}p{2.51cm}I
+                  >{\raggedright\arraybackslash}p{2.51cm}@{}}
+\toprule
+& \multicolumn{5}{c@{}}{\textbf{Labor-market closure} \scriptsize(columns)} \\
+\cmidrule(l){2-6}
+\textbf{Financing closure}\sublabel{(rows)}
+& \textbf{No-reallocation}\sublabel{immobile labor, sectoral wages ($\eta = 0$)}
+& \textbf{Standard CGE}\sublabel{one flexible wage, mobile labor ($\eta = 1$)}
+& \textbf{Elastic labor supply}\sublabel{behavioral supply on the real wage}
+& \textbf{Employment adjustment}\sublabel{wage pinned, employment uncapped, $F\equiv0$}
+& \textbf{Leontief closure}\sublabel{wage pinned, quantities absorb, $F\equiv0$} \\
+\addlinespace[2pt]
+\midrule
+\addlinespace[4pt]
+% ---- F1 -------------------------------------------------------------
+\textbf{F1}\sublabel{repurposing of consumption}
+%
+& \lblk{labor market}{\cnd{$\eta = 0$:}\cnd{$L_i^{\mathrm{cm}}(p, y_i, w_i)$}\cnd{$\quad= \bar L_i$}\cnd{sectoral $w_i$}}{}
+  \fblk{financing}{\cnd{$\tau \sum_i w_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$\tilde\beta_i$ tilted to program sectors}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}\cnd{$\sum_i L_i = \bar L$}\cnd{one wage $w$}}{}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$\tilde\beta_i$ tilted to program sectors}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$L_i^{\mathrm{cm}}(p, y_i, w_i)$}\cnd{$= \bar L_i \bigl(\tfrac{w_i/\mathcal{P}(p)}{w_{i0}/\mathcal{P}_{0}}\bigr)^{\eta_s}$}}{}
+  \fblk{financing}{\cnd{$\tau \sum_i w_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$\tilde\beta_i$ tilted to program sectors}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$w = 1$ (numeraire)}\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}}{}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$\tilde\beta_i$ tilted to program sectors}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$w = 1$}\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}}{\pblk{production}{\cnd{$(\theta, \varepsilon, \sigma) \to 0^{+}$}}}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$\tilde\beta_i$ tilted to program sectors}\cnd{$B_{\mathrm{gov}} = 0$}} \\
+\addlinespace[2pt]
+\midrule
+\addlinespace[4pt]
+% ---- F2 -------------------------------------------------------------
+\textbf{F2}\sublabel{refinancing via taxes}
+%
+& \lblk{labor market}{\cnd{$\eta = 0$:}\cnd{$L_i^{\mathrm{cm}}(p, y_i, w_i)$}\cnd{$\quad= \bar L_i$}\cnd{sectoral $w_i$}}{}
+  \fblk{financing}{\cnd{$\tau \sum_i w_i L_i$}\cnd{$= \sum_i p_i(g^{G}_i + g_i)$}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}\cnd{$\sum_i L_i = \bar L$}\cnd{one wage $w$}}{}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$= \sum_i p_i(g^{G}_i + g_i)$}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$L_i^{\mathrm{cm}}(p, y_i, w_i)$}\cnd{$= \bar L_i \bigl(\tfrac{w_i/\mathcal{P}(p)}{w_{i0}/\mathcal{P}_{0}}\bigr)^{\eta_s}$}}{}
+  \fblk{financing}{\cnd{$\tau \sum_i w_i L_i$}\cnd{$= \sum_i p_i(g^{G}_i + g_i)$}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$w = 1$ (numeraire)}\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}}{}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$= \sum_i p_i(g^{G}_i + g_i)$}\cnd{$B_{\mathrm{gov}} = 0$}}
+%
+& \lblk{labor market}{\cnd{$w = 1$}\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}}{\pblk{production}{\cnd{$(\theta, \varepsilon, \sigma) \to 0^{+}$}}}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$= \sum_i p_i(g^{G}_i + g_i)$}\cnd{$B_{\mathrm{gov}} = 0$}} \\
+\addlinespace[2pt]
+\midrule
+\addlinespace[4pt]
+% ---- F3 -------------------------------------------------------------
+\textbf{F3}\sublabel{external finance}
+%
+& \lblk{labor market}{\cnd{$\eta = 0$:}\cnd{$L_i^{\mathrm{cm}}(p, y_i, w_i)$}\cnd{$\quad= \bar L_i$}\cnd{sectoral $w_i$}}{}
+  \fblk{financing}{\cnd{$\tau \sum_i w_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$B_{\mathrm{gov}} = \sum_i p_i g_i$}}
+%
+& \lblk{labor market}{\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}\cnd{$\sum_i L_i = \bar L$}\cnd{one wage $w$}}{}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$B_{\mathrm{gov}} = \sum_i p_i g_i$}}
+%
+& \lblk{labor market}{\cnd{$L_i^{\mathrm{cm}}(p, y_i, w_i)$}\cnd{$= \bar L_i \bigl(\tfrac{w_i/\mathcal{P}(p)}{w_{i0}/\mathcal{P}_{0}}\bigr)^{\eta_s}$}}{}
+  \fblk{financing}{\cnd{$\tau \sum_i w_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$B_{\mathrm{gov}} = \sum_i p_i g_i$}}
+%
+& \lblk{labor market}{\cnd{$w = 1$ (numeraire)}\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}}{}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$B_{\mathrm{gov}} = \sum_i p_i g_i$}}
+%
+& \lblk{labor market}{\cnd{$w = 1$}\cnd{$L_i = L_i^{\mathrm{cm}}(p, y_i, w)$}}{\pblk{production}{\cnd{$(\theta, \varepsilon, \sigma) \to 0^{+}$}}}
+  \fblk{financing}{\cnd{$\tau\, w \sum_i L_i$}\cnd{$\quad= \sum_i p_i g^{G}_i$}\cnd{$B_{\mathrm{gov}} = \sum_i p_i g_i$}} \\
+\addlinespace[2pt]
+\bottomrule
+\end{tabular}
+\linespread{1}\selectfont% caption at the document's spacing
+\caption{The expanded closure matrix: three financing closures
+(rows) crossed with five labor-market closures (columns). Each cell
+states the labor-market condition (the column), the fixed-coefficient production condition where
+one applies (the Leontief column only), and the financing condition (the
+row). The program cost $\sum_i p_i g_i$ is valued at each cell's
+equilibrium prices. $\theta$, $\varepsilon$ and $\sigma$ are the substitution
+elasticities whose limit $0^{+}$ gives fixed coefficients. All other notation
+as in Table~\ref{tab:closure-conditions}.}
+\label{tab:closure-matrix-3x5}
+\end{table}

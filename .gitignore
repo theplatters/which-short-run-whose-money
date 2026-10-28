@@ -1,0 +1,26 @@
+# Input data: only the programme impulses are shipped; the Destatis IO table
+# must be obtained separately (see README.md)
+data/*
+!data/impulses.csv
+
+# Generated output and figures (regenerate; do not commit)
+output/
+/plots/*.png
+
+# Run artifacts: only the index and manifests are committed
+/runs/*
+!/runs/index.csv
+!/runs/*/
+/runs/*/*
+!/runs/*/manifest.toml
+
+# Editor/tool leftovers and transient artifacts
+.idea/
+.vscode/
+.DS_Store
+*.bak
+*.log
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+revision/main.pdf

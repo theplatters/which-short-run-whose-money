@@ -1,0 +1,789 @@
+schema_version = 1
+design = "pricing_profit"
+description = "Markup pricing door (P2) with the rent distributed to households: kappa in {0.25, 0.5} x s_pi in {0.5, 0} on all five labour rows and F1-F3."
+smoke = false
+[data]
+vintage = "full-71-abill"
+drops = []
+calibration_root = "src"
+source_table = "data/I-O_DE2019_formatiert.csv"
+calibration_artifacts = []
+
+[calibration]
+saving_rate = 0.1199
+intermediate_imports = 0.2214
+intermediate_taxes = 0.0257449423974625
+baseline_root_tol = 1e-12
+
+[programme]
+source = "data/impulses.csv"
+year = 2024
+column_slice = [3, 73]
+total_eur_m = 40300.0
+f1_shift = "tilt_g0_over_c0"
+
+[reference]
+labor = "ALPHA"
+eta = 1.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+exo_scale_steps = 6
+thetas = [2.0, 1.5, 1.2, 1.0, 0.8, 0.65, 0.5]
+
+[gates]
+residual_tol = 1e-6
+budget_tol = 1e-9
+labour_tol = 1e-6
+wage_tol = 1e-8
+
+[pricing]
+kind = "markup"
+kappa = 0.0
+s_pi = 1.0
+multistart_tol = 1e-6
+continuation_steps = 4
+
+[cells.pricing_profit-BF-F1-k025-spi05]
+labor = "BF"
+financing = "F1"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; sectoral-wage endpoint (eta = 0), compositional F1 shift"
+
+[cells.pricing_profit-BF-F1-k025-spi0]
+labor = "BF"
+financing = "F1"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); sectoral-wage endpoint (eta = 0), compositional F1 shift"
+
+[cells.pricing_profit-BF-F1-k05-spi05]
+labor = "BF"
+financing = "F1"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; sectoral-wage endpoint (eta = 0), compositional F1 shift"
+
+[cells.pricing_profit-BF-F1-k05-spi0]
+labor = "BF"
+financing = "F1"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); sectoral-wage endpoint (eta = 0), compositional F1 shift"
+
+[cells.pricing_profit-ALPHA-F1-k025-spi05]
+labor = "ALPHA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; full-employment mobile labour, compositional F1 shift"
+
+[cells.pricing_profit-ALPHA-F1-k025-spi0]
+labor = "ALPHA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); full-employment mobile labour, compositional F1 shift"
+
+[cells.pricing_profit-ALPHA-F1-k05-spi05]
+labor = "ALPHA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; full-employment mobile labour, compositional F1 shift"
+
+[cells.pricing_profit-ALPHA-F1-k05-spi0]
+labor = "ALPHA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); full-employment mobile labour, compositional F1 shift"
+
+[cells.pricing_profit-BETA-F1-k025-spi05]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; sectoral BETA (ADR-0022), uniform eta_s = 0.5, compositional F1 shift"
+
+[cells.pricing_profit-BETA-F1-k025-spi0]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); sectoral BETA (ADR-0022), uniform eta_s = 0.5, compositional F1 shift"
+
+[cells.pricing_profit-BETA-F1-k05-spi05]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; sectoral BETA (ADR-0022), uniform eta_s = 0.5, compositional F1 shift"
+
+[cells.pricing_profit-BETA-F1-k05-spi0]
+labor = "BETA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); sectoral BETA (ADR-0022), uniform eta_s = 0.5, compositional F1 shift"
+
+[cells.pricing_profit-GAMMA-F1-k025-spi05]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_profit-GAMMA-F1-k025-spi0]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_profit-GAMMA-F1-k05-spi05]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_profit-GAMMA-F1-k05-spi0]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_profit-DELTA-F1-k025-spi05]
+labor = "DELTA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; DELTA corner (Leontief limit at eps = 1e-4), compositional F1 shift"
+
+[cells.pricing_profit-DELTA-F1-k025-spi0]
+labor = "DELTA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); DELTA corner (Leontief limit at eps = 1e-4), compositional F1 shift"
+
+[cells.pricing_profit-DELTA-F1-k05-spi05]
+labor = "DELTA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; DELTA corner (Leontief limit at eps = 1e-4), compositional F1 shift"
+
+[cells.pricing_profit-DELTA-F1-k05-spi0]
+labor = "DELTA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); DELTA corner (Leontief limit at eps = 1e-4), compositional F1 shift"
+
+[cells.pricing_profit-BF-F2-k025-spi05]
+labor = "BF"
+financing = "F2"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; sectoral-wage endpoint (eta = 0), tax-financed programme"
+
+[cells.pricing_profit-BF-F2-k025-spi0]
+labor = "BF"
+financing = "F2"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); sectoral-wage endpoint (eta = 0), tax-financed programme"
+
+[cells.pricing_profit-BF-F2-k05-spi05]
+labor = "BF"
+financing = "F2"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; sectoral-wage endpoint (eta = 0), tax-financed programme"
+
+[cells.pricing_profit-BF-F2-k05-spi0]
+labor = "BF"
+financing = "F2"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); sectoral-wage endpoint (eta = 0), tax-financed programme"
+
+[cells.pricing_profit-ALPHA-F2-k025-spi05]
+labor = "ALPHA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; full-employment mobile labour, tax-financed programme"
+
+[cells.pricing_profit-ALPHA-F2-k025-spi0]
+labor = "ALPHA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); full-employment mobile labour, tax-financed programme"
+
+[cells.pricing_profit-ALPHA-F2-k05-spi05]
+labor = "ALPHA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; full-employment mobile labour, tax-financed programme"
+
+[cells.pricing_profit-ALPHA-F2-k05-spi0]
+labor = "ALPHA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); full-employment mobile labour, tax-financed programme"
+
+[cells.pricing_profit-BETA-F2-k025-spi05]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; sectoral BETA (ADR-0022), uniform eta_s = 0.5, tax-financed programme"
+
+[cells.pricing_profit-BETA-F2-k025-spi0]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); sectoral BETA (ADR-0022), uniform eta_s = 0.5, tax-financed programme"
+
+[cells.pricing_profit-BETA-F2-k05-spi05]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; sectoral BETA (ADR-0022), uniform eta_s = 0.5, tax-financed programme"
+
+[cells.pricing_profit-BETA-F2-k05-spi0]
+labor = "BETA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); sectoral BETA (ADR-0022), uniform eta_s = 0.5, tax-financed programme"
+
+[cells.pricing_profit-GAMMA-F2-k025-spi05]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; fixed nominal wage, tax-financed programme"
+
+[cells.pricing_profit-GAMMA-F2-k025-spi0]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); fixed nominal wage, tax-financed programme"
+
+[cells.pricing_profit-GAMMA-F2-k05-spi05]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; fixed nominal wage, tax-financed programme"
+
+[cells.pricing_profit-GAMMA-F2-k05-spi0]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); fixed nominal wage, tax-financed programme"
+
+[cells.pricing_profit-DELTA-F2-k025-spi05]
+labor = "DELTA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; DELTA corner (Leontief limit at eps = 1e-4), tax-financed programme"
+
+[cells.pricing_profit-DELTA-F2-k025-spi0]
+labor = "DELTA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); DELTA corner (Leontief limit at eps = 1e-4), tax-financed programme"
+
+[cells.pricing_profit-DELTA-F2-k05-spi05]
+labor = "DELTA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; DELTA corner (Leontief limit at eps = 1e-4), tax-financed programme"
+
+[cells.pricing_profit-DELTA-F2-k05-spi0]
+labor = "DELTA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); DELTA corner (Leontief limit at eps = 1e-4), tax-financed programme"
+
+[cells.pricing_profit-BF-F3-k025-spi05]
+labor = "BF"
+financing = "F3"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; sectoral-wage endpoint (eta = 0), externally financed programme"
+
+[cells.pricing_profit-BF-F3-k025-spi0]
+labor = "BF"
+financing = "F3"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); sectoral-wage endpoint (eta = 0), externally financed programme"
+
+[cells.pricing_profit-BF-F3-k05-spi05]
+labor = "BF"
+financing = "F3"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; sectoral-wage endpoint (eta = 0), externally financed programme"
+
+[cells.pricing_profit-BF-F3-k05-spi0]
+labor = "BF"
+financing = "F3"
+eta = 0.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); sectoral-wage endpoint (eta = 0), externally financed programme"
+
+[cells.pricing_profit-ALPHA-F3-k025-spi05]
+labor = "ALPHA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; full-employment mobile labour, externally financed programme"
+
+[cells.pricing_profit-ALPHA-F3-k025-spi0]
+labor = "ALPHA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); full-employment mobile labour, externally financed programme"
+
+[cells.pricing_profit-ALPHA-F3-k05-spi05]
+labor = "ALPHA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; full-employment mobile labour, externally financed programme"
+
+[cells.pricing_profit-ALPHA-F3-k05-spi0]
+labor = "ALPHA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); full-employment mobile labour, externally financed programme"
+
+[cells.pricing_profit-BETA-F3-k025-spi05]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; sectoral BETA (ADR-0022), uniform eta_s = 0.5, externally financed programme"
+
+[cells.pricing_profit-BETA-F3-k025-spi0]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); sectoral BETA (ADR-0022), uniform eta_s = 0.5, externally financed programme"
+
+[cells.pricing_profit-BETA-F3-k05-spi05]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; sectoral BETA (ADR-0022), uniform eta_s = 0.5, externally financed programme"
+
+[cells.pricing_profit-BETA-F3-k05-spi0]
+labor = "BETA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.5
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+eta_s_rigid_group = "none"
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); sectoral BETA (ADR-0022), uniform eta_s = 0.5, externally financed programme"
+
+[cells.pricing_profit-GAMMA-F3-k025-spi05]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; fixed nominal wage, externally financed programme"
+
+[cells.pricing_profit-GAMMA-F3-k025-spi0]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); fixed nominal wage, externally financed programme"
+
+[cells.pricing_profit-GAMMA-F3-k05-spi05]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; fixed nominal wage, externally financed programme"
+
+[cells.pricing_profit-GAMMA-F3-k05-spi0]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); fixed nominal wage, externally financed programme"
+
+[cells.pricing_profit-DELTA-F3-k025-spi05]
+labor = "DELTA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.25
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0.5; DELTA corner (Leontief limit at eps = 1e-4), externally financed programme"
+
+[cells.pricing_profit-DELTA-F3-k025-spi0]
+labor = "DELTA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.25
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.25, s_pi = 0 (household saves s of the distributed rent); DELTA corner (Leontief limit at eps = 1e-4), externally financed programme"
+
+[cells.pricing_profit-DELTA-F3-k05-spi05]
+labor = "DELTA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.5
+s_pi = 0.5
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0.5; DELTA corner (Leontief limit at eps = 1e-4), externally financed programme"
+
+[cells.pricing_profit-DELTA-F3-k05-spi0]
+labor = "DELTA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 1e-4
+epsilon = 1e-4
+sigma = 1e-4
+delta_epsilon = 1e-4
+kappa = 0.5
+s_pi = 0.0
+note = "P2 distributed markup (Stage B), kappa = 0.5, s_pi = 0 (household saves s of the distributed rent); DELTA corner (Leontief limit at eps = 1e-4), externally financed programme"

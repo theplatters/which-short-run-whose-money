@@ -1,0 +1,45 @@
+% =====================================================================
+% Table --- the elasticities of the comparison (Sec. 4.2)
+% ---------------------------------------------------------------------
+% Requested by reviewer 1 (R1.3: "including elasticity values in a table").
+% Values are read from the executed design experiments/designs/
+% matrix_5x3.toml and from the manifests of the reported cells
+% (runs/matrix_5x3-*): sigma, theta, epsilon, eta are the design values;
+% eta_s is the bracket printed in Table 4; the two extension parameters are
+% the ones the reported tables of Section 6 use. None of these is estimated
+% from the input--output table.
+% =====================================================================
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{@{}l p{5.9cm} l l@{}}
+\toprule
+Parameter & Meaning in the model core & Value & Set in \\
+\midrule
+$\sigma$ & substitution across consumption goods & $0.9$ & all but the Leontief column \\
+$\theta$ & substitution across intermediates & $0.5$ & all but the Leontief column \\
+$\varepsilon$ & labor--intermediate nesting & $0.5$ & all but the Leontief column \\
+$\eta_s$ & sectoral labor-supply elasticity with respect to the real wage & $\{0.5,1,2\}$ & elastic-supply column \\
+\addlinespace
+
+
+$\eta$ & intersectoral labor-allocation selector & $\{0,1\}$ & labor closure \\
+$\delta$ & capacity extension: utilization elasticity of productivity & $\{-0.5,0,+0.5\}$ & Section~\ref{subsec:pricing-capacity} \\
+$\kappa$ & markup extension: margin--utilization slope & $\{0.25,0.5\}$ & Section~\ref{subsec:pricing-markup} \\
+
+\bottomrule
+\end{tabular}
+\par\smallskip
+\parbox{\textwidth}{\footnotesize
+\textit{Note:} $\eta=0$ fixes employment in each sector at its baseline level,
+with sector-specific wages; $\eta=1$ selects cost-minimizing labor demand,
+with a common wage in the standard CGE and wage-pinned closures and sectoral
+wages under elastic supply. The three substitution elasticities take the
+corner values $(\theta,\varepsilon,\sigma) = (10^{-4},10^{-4},10^{-4})$ in the
+Leontief column, the fixed-coefficient corner solution of
+Appendix~\ref{app:proofs}; the welfare measures of
+Table~\ref{tab:welfare-comparison} are evaluated at the reference
+$\sigma = 0.9$ in every column.}
+\caption{Parameter values for the baseline comparison and the pricing extensions. The first block lists the substitution elasticities of the model core --- $\sigma$ across consumption goods, $\theta$ across intermediates, $\varepsilon$ in the labor--intermediate nesting --- and the sectoral labor-supply elasticity $\eta_s$. The second block lists the labor-allocation selector $\eta$ and the two extension parameters $\delta$ (capacity) and $\kappa$ (markup) at the values executed. The last column states where each value is set; none of these parameters is estimated from the input--output table.}
+\label{tab:parameters}
+\end{table}

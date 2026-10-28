@@ -1,0 +1,131 @@
+schema_version = 2
+
+[designs.pricing_capacity]
+git_commit = "349995059ea3635732437675e37170f54a18775d"
+note = "Capacity pricing door (P1) on the GAMMA row: homogeneous and services-zero delta profiles."
+registered_at = "2026-10-28T22:41:46"
+design_sha256 = "075be2c48f8b6ef2b73272dff610d857a2af3f403048239e1f48abf1ecaae8a3"
+actor = "Franz Scharnreitner"
+
+    [designs.pricing_capacity.pinned]
+    f1_shift = "tilt_g0_over_c0"
+    pricing_n_sectors = 71
+    programme_year = 2024
+    sigma = 0.9
+    theta = 0.5
+    total_eur_m = 40300.0
+    exo_scale_steps = 6
+    pricing_multistart_tol = 1.0e-6
+    pricing_delta = 0.0
+    pricing_continuation_steps = 4
+    eta = 1.0
+    pricing_kind = "capacity"
+    pricing_services = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+    epsilon = 0.5
+
+[designs.matrix_5x3]
+git_commit = "5824ed13cb5cb0424ea68682b1437b22b93888fe"
+note = "The 5x3 labour-by-financing matrix (BF, ALPHA, BETA, GAMMA, DELTA x F1, F2, F3) plus the sectoral-labour BETA cells."
+registered_at = "2026-10-28T22:41:29"
+design_sha256 = "a8729b02c171874c2d29c5aa710ea34b5f6cb4625fe6f8a783293764572ed7a3"
+actor = "Franz Scharnreitner"
+
+    [designs.matrix_5x3.pinned]
+    sigma = 0.9
+    theta = 0.5
+    f1_shift = "tilt_g0_over_c0"
+    epsilon = 0.5
+    total_eur_m = 40300.0
+    exo_scale_steps = 6
+    eta = 1.0
+    programme_year = 2024
+
+[designs.pricing_mobile]
+git_commit = "349995059ea3635732437675e37170f54a18775d"
+note = "Capacity pricing door (P1) on the mobile ALPHA row (robustness)."
+registered_at = "2026-10-28T22:42:02"
+design_sha256 = "91d671f92930c9b83955f33c6e460eaf840a4b03a9e5c2c61a12c5526508478b"
+actor = "Franz Scharnreitner"
+
+    [designs.pricing_mobile.pinned]
+    f1_shift = "tilt_g0_over_c0"
+    pricing_n_sectors = 71
+    programme_year = 2024
+    sigma = 0.9
+    theta = 0.5
+    total_eur_m = 40300.0
+    exo_scale_steps = 6
+    pricing_multistart_tol = 1.0e-6
+    pricing_delta = 0.0
+    pricing_continuation_steps = 4
+    eta = 1.0
+    pricing_kind = "capacity"
+    pricing_services = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+    epsilon = 0.5
+
+[designs.pricing_profit]
+git_commit = "349995059ea3635732437675e37170f54a18775d"
+note = "Markup pricing door (P2) with the rent distributed to households: kappa in {0.25, 0.5} x s_pi in {0.5, 0} on all five labour rows and F1-F3."
+registered_at = "2026-10-28T22:42:11"
+design_sha256 = "7a9571087fd72714046b4553a514aaa81f19248f41cc4644a3820fc67825f69a"
+actor = "Franz Scharnreitner"
+
+    [designs.pricing_profit.pinned]
+    f1_shift = "tilt_g0_over_c0"
+    programme_year = 2024
+    sigma = 0.9
+    theta = 0.5
+    total_eur_m = 40300.0
+    exo_scale_steps = 6
+    pricing_multistart_tol = 1.0e-6
+    pricing_s_pi = 1.0
+    pricing_continuation_steps = 4
+    eta = 1.0
+    pricing_kind = "markup"
+    epsilon = 0.5
+    pricing_kappa = 0.0
+
+[designs.pricing_capacity_rows]
+git_commit = "5824ed13cb5cb0424ea68682b1437b22b93888fe"
+note = "Capacity pricing door (P1) on the BF, BETA, DELTA rows plus the ALPHA delta = 0 canary."
+registered_at = "2026-10-28T22:41:37"
+design_sha256 = "e0afb6c9b35dd3dcd98c199a03aa18d1c1522b10008d53581a63452650effeee"
+actor = "Franz Scharnreitner"
+
+    [designs.pricing_capacity_rows.pinned]
+    f1_shift = "tilt_g0_over_c0"
+    pricing_n_sectors = 71
+    programme_year = 2024
+    sigma = 0.9
+    theta = 0.5
+    total_eur_m = 40300.0
+    exo_scale_steps = 6
+    pricing_multistart_tol = 1.0e-6
+    pricing_delta = 0.0
+    pricing_continuation_steps = 4
+    eta = 1.0
+    pricing_kind = "capacity"
+    pricing_services = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+    epsilon = 0.5
+
+[designs.pricing_markup]
+git_commit = "349995059ea3635732437675e37170f54a18775d"
+note = "Markup pricing door (P2) with the rent retained (s_pi = 1) on all five labour rows."
+registered_at = "2026-10-28T22:41:54"
+design_sha256 = "ce58851d84343bc31132a6882f293c772bf30c3885d1e91cbc9e9759fe10a21c"
+actor = "Franz Scharnreitner"
+
+    [designs.pricing_markup.pinned]
+    f1_shift = "tilt_g0_over_c0"
+    programme_year = 2024
+    sigma = 0.9
+    theta = 0.5
+    total_eur_m = 40300.0
+    exo_scale_steps = 6
+    pricing_multistart_tol = 1.0e-6
+    pricing_s_pi = 1.0
+    pricing_continuation_steps = 4
+    eta = 1.0
+    pricing_kind = "markup"
+    epsilon = 0.5
+    pricing_kappa = 0.0

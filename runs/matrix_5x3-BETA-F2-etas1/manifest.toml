@@ -1,0 +1,99 @@
+design = "matrix_5x3"
+date = "2026-10-23"
+status = "executed"
+run_id = "matrix_5x3-BETA-F2-etas1"
+actor = "codex"
+schema_version = 2
+cell = "matrix_5x3-BETA-F2-etas1"
+
+[metrics]
+consumption_rel = -0.014669197194095762
+gdp_rel = 0.0016665421887795961
+gdp_deflator = 1.0018001797521803
+external_position = -0.0014437066107612967
+max_abs_price_dev = 0.06542176091971164
+gdp_expenditure_rel = 0.0016665421877355424
+programme_financing = 0.0
+wage = 1.0018393767483738
+nominal_gdp = 1.0034697220164597
+external_transfer = -0.0014437066107612967
+employment = 1.001627351954739
+gdp = 1.0016665421887796
+consumption = 0.9853308028059042
+gdp_wedge = -1.0460521338018225e-12
+gdp_expenditure = 1.0016665421877355
+
+[gates]
+overall = "pass"
+
+    [gates.sectoral]
+    value = 1.779319760649746e-13
+    pass = true
+    tolerance = 1.0e-6
+
+    [gates.budget]
+    value = 2.220446049250313e-16
+    pass = true
+    tolerance = 1.0e-9
+
+    [gates.residual]
+    value = 9.18183931664096e-13
+    pass = true
+    tolerance = 1.0e-6
+
+[provenance]
+git_commit = "8bf62ae0ca549619b38931e86651b061925ffe99"
+julia_version = "1.12.7"
+design_sha256 = "a8729b02c171874c2d29c5aa710ea34b5f6cb4625fe6f8a783293764572ed7a3"
+git_dirty = true
+seed = 1234
+manifest_sha256 = "f40ed58af21530376b766b460e4f9405ad4069bf9c45a74a01bc41056d32b0a9"
+
+    [provenance.opencge]
+    repo_url = "https://github.com/theplatters/OpenCGE"
+    git_tree_sha1 = "9f41bc9c69910f8cb37ff9ab78de75ce004ee9b9"
+    repo_rev = "v0.5.0"
+    version = "0.4.1"
+
+    [provenance.data_sha256]
+    "data/I-O_DE2019_formatiert.csv" = "e9c3299731940f7ce683f0e508495c62ad255f0a5536cf1da63c02478058914d"
+    "experiments/designs/matrix_5x3.toml" = "a8729b02c171874c2d29c5aa710ea34b5f6cb4625fe6f8a783293764572ed7a3"
+    "data/impulses.csv" = "5545c748d848ec121fa5aff21d0c46a55c8d00462518718d3d54374c7f0b8c5f"
+
+[scenario]
+sigma = 0.9
+theta = 0.5
+eta_s_rigid_group = "none"
+labour = "BETA"
+magnitude = 1.0
+eta = 1.0
+eta_s = 1.0
+financing = "F2"
+eta_s_vec = [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+epsilon = 0.5
+shock = "impulses.csv"
+
+[solver]
+init = "warm:reference-final"
+algorithm = "kernel solve / solve_beta (Newton + residual-gated LM polish)"
+reference = "batch-continuation"
+
+[diagnostics]
+external_balance = 0.0
+gdp_m_final = -0.24370250774927285
+wage_max = 1.1492022137609108
+gdp_g = 0.22765589268420075
+gdp_c = 0.6815289784944861
+wage_min = 0.9919823025496012
+canary_ixm = 0.12003628708913483
+gdp_x = 0.4231531110842638
+gdp_m_int = -0.22336413128049146
+canary_diff = 1.0459183432537378e-12
+public_budget = 0.2278120616493165
+gdp_t_int = -0.025751436252407747
+gdp_i = 0.16394981503463524
+canary_s = 0.09284114422701169
+
+[artifacts]
+log = "log.txt"
+solution = "solution.csv"

@@ -1,0 +1,34 @@
+% Table B1 -- the sectoral family in three parts (rigid end / uniform ladder /
+% elastic end).  Every cell is a model solution under F2 financing, demand-only
+% shocks, and baseline elasticities theta = eps = 0.5, sigma = 0.9, eta = 1,
+% varying only the sectoral labor-supply elasticity eta_s; each row is
+% reproducible by re-solving the corresponding sectoral-family specification.
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+& $\max|p-1|$ & Employment & Consumption & $F$ \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Uniform elasticity}} \\
+$\eta_s = 0.25$ & $0.152897$ & $1.000864$ & $-1.689$ & $-0.004424$ \\
+$\eta_s = 0.5$  & $0.105666$ & $1.001255$ & $-1.571$ & $-0.002828$ \\
+$\eta_s = 1$    & $0.065422$ & $1.001627$ & $-1.467$ & $-0.001444$ \\
+$\eta_s = 2$    & $0.037171$ & $1.001914$ & $-1.391$ & $-0.000457$ \\
+$\eta_s = 10$   & $0.008351$ & $1.002231$ & $-1.312$ & $+0.000562$ \\
+$\eta_s = 100$  & $0.000859$ & $1.002318$ & $-1.291$ & $+0.000829$ \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{The rigid end}} \\
+Sectoral, $\eta_s = 0$    & $0.279009$ & $1.000000$ & $-1.980$ & $-0.008528$ \\
+No reallocation ($\eta = 0$)  & $0.279009$ & $1.000000$ & $-1.980$ & $-0.008528$ \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{The elastic end}} \\
+Sectoral, $\eta_s = 1000$      & $0.000086$ & $1.002327$ & $-1.288$ & $+0.000856$ \\
+Employment adjustment, $F = 0$      & $0.000000$ & $1.001260$ & $-1.533$ & $0.000000$ \\
+Employment adjustment, $F = F_{1000}$ & $0.000000$ & $1.002324$ & $-1.289$ & $+0.000856$ \\
+\bottomrule
+\end{tabular}
+\caption{Sectoral labor supply at different elasticities, all under financing closure F2. Price deviations are fractions; employment is an index with baseline of one; consumption is a percentage change; $F$ is expressed as a share of baseline GDP. \emph{Top:} a common
+elasticity across sectors, ranging from $\eta_s = 0.25$ to $100$. \emph{Middle:} the rigid end, where the family at $\eta_s = 0$ and the no-reallocation row coincide. \emph{Bottom:} a large-elasticity approximation at $\eta_s = 1000$, compared with the employment-adjustment system at $F=0$ and at the sectoral economy's transfer $F_{1000}$. At the same external transfer the two closures give nearly equal employment and consumption responses.}
+\label{tab:sectoral}
+\end{table}

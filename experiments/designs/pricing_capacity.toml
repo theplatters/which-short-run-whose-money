@@ -1,0 +1,219 @@
+schema_version = 1
+design = "pricing_capacity"
+description = "Capacity pricing door (P1) on the GAMMA row: homogeneous and services-zero delta profiles."
+smoke = false
+[data]
+vintage = "full-71-abill"
+drops = []
+calibration_root = "src"
+source_table = "data/I-O_DE2019_formatiert.csv"
+calibration_artifacts = []
+
+[calibration]
+saving_rate = 0.1199
+intermediate_imports = 0.2214
+intermediate_taxes = 0.0257449423974625
+baseline_root_tol = 1e-12
+
+[programme]
+source = "data/impulses.csv"
+year = 2024
+column_slice = [3, 73]
+total_eur_m = 40300.0
+f1_shift = "tilt_g0_over_c0"
+
+[reference]
+labor = "ALPHA"
+eta = 1.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+exo_scale_steps = 6
+thetas = [2.0, 1.5, 1.2, 1.0, 0.8, 0.65, 0.5]
+
+[gates]
+residual_tol = 1e-6
+budget_tol = 1e-9
+labour_tol = 1e-6
+wage_tol = 1e-8
+
+[pricing]
+kind = "capacity"
+delta = 0.0
+multistart_tol = 1e-6
+continuation_steps = 4
+# CPA sections G-T of the full-71 table (Handelsleistungen mit Kfz .. sonstige
+# persoenliche DL); cells with delta_services carry that delta on these sectors.
+n_sectors = 71
+services = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71]
+
+[cells.pricing_capacity-GAMMA-F1-d0]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.0
+note = "P1 capacity door, delta = 0, the nesting canary (reproduces matrix_5x3-GAMMA-F1); fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_capacity-GAMMA-F1-dp05]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.5
+note = "P1 VA-scaled capacity door, delta = +0.5 homogeneous, capacity pressure; fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_capacity-GAMMA-F1-dp05-s0]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.5
+delta_services = 0.0
+note = "P1 VA-scaled capacity door, delta = +0.5 on goods (CPA A-F), 0 on services (CPA G-T), capacity pressure; fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_capacity-GAMMA-F1-dm05]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = -0.5
+note = "P1 VA-scaled capacity door, delta = -0.5 homogeneous, the Kaldor-Verdoorn sign (increasing returns; uniqueness gate); fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_capacity-GAMMA-F1-dm05-s0]
+labor = "GAMMA"
+financing = "F1"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = -0.5
+delta_services = 0.0
+note = "P1 VA-scaled capacity door, delta = -0.5 on goods (CPA A-F), 0 on services (CPA G-T), the Kaldor-Verdoorn sign (increasing returns; uniqueness gate); fixed nominal wage, compositional F1 shift"
+
+[cells.pricing_capacity-GAMMA-F2-d0]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.0
+note = "P1 capacity door, delta = 0, the nesting canary (reproduces matrix_5x3-GAMMA-F2); fixed nominal wage, tax-financed programme"
+
+[cells.pricing_capacity-GAMMA-F2-dp05]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.5
+note = "P1 VA-scaled capacity door, delta = +0.5 homogeneous, capacity pressure; fixed nominal wage, tax-financed programme"
+
+[cells.pricing_capacity-GAMMA-F2-dp05-s0]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.5
+delta_services = 0.0
+note = "P1 VA-scaled capacity door, delta = +0.5 on goods (CPA A-F), 0 on services (CPA G-T), capacity pressure; fixed nominal wage, tax-financed programme"
+
+[cells.pricing_capacity-GAMMA-F2-dm05]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = -0.5
+note = "P1 VA-scaled capacity door, delta = -0.5 homogeneous, the Kaldor-Verdoorn sign (increasing returns; uniqueness gate); fixed nominal wage, tax-financed programme"
+
+[cells.pricing_capacity-GAMMA-F2-dm05-s0]
+labor = "GAMMA"
+financing = "F2"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = -0.5
+delta_services = 0.0
+note = "P1 VA-scaled capacity door, delta = -0.5 on goods (CPA A-F), 0 on services (CPA G-T), the Kaldor-Verdoorn sign (increasing returns; uniqueness gate); fixed nominal wage, tax-financed programme"
+
+[cells.pricing_capacity-GAMMA-F3-d0]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.0
+note = "P1 capacity door, delta = 0, the nesting canary (reproduces matrix_5x3-GAMMA-F3); fixed nominal wage, externally financed programme"
+
+[cells.pricing_capacity-GAMMA-F3-dp05]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.5
+note = "P1 VA-scaled capacity door, delta = +0.5 homogeneous, capacity pressure; fixed nominal wage, externally financed programme"
+
+[cells.pricing_capacity-GAMMA-F3-dp05-s0]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = 0.5
+delta_services = 0.0
+note = "P1 VA-scaled capacity door, delta = +0.5 on goods (CPA A-F), 0 on services (CPA G-T), capacity pressure; fixed nominal wage, externally financed programme"
+
+[cells.pricing_capacity-GAMMA-F3-dm05]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = -0.5
+note = "P1 VA-scaled capacity door, delta = -0.5 homogeneous, the Kaldor-Verdoorn sign (increasing returns; uniqueness gate); fixed nominal wage, externally financed programme"
+
+[cells.pricing_capacity-GAMMA-F3-dm05-s0]
+labor = "GAMMA"
+financing = "F3"
+eta = 1.0
+eta_s = 0.0
+theta = 0.5
+epsilon = 0.5
+sigma = 0.9
+delta = -0.5
+delta_services = 0.0
+note = "P1 VA-scaled capacity door, delta = -0.5 on goods (CPA A-F), 0 on services (CPA G-T), the Kaldor-Verdoorn sign (increasing returns; uniqueness gate); fixed nominal wage, externally financed programme"

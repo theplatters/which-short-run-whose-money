@@ -1,0 +1,87 @@
+\section{The common model}\label{sec:kernel}
+
+All fifteen constellations in Table~\ref{tab:closure-matrix-3x5} share one model core: a production network calibrated to an input--output table, cost-minimizing producers and a utility-maximizing household. The closures specify which variables adjust and how expenditure is redirected or financed. This section states the core in its minimal form; further details are provided in Appendix~\ref{app:proofs}.
+
+\renewcommand*{\theHequation}{kernel.\arabic{equation}}
+
+\subsection{The input--output table}\label{subsec:io-table}
+An input--output table records, for $N$ sectors, the domestic deliveries
+$x_{ui}$ of good $u$ to sector $i$, final use $z_u$ of domestic good $u$
+(household consumption, government purchases, investment, exports) and the
+value added $v_i$ of each sector. Each sector's purchases of intermediates
+also contain two components that are not domestic deliveries: imported
+intermediates $M_{\mathrm{int},i}$ and product taxes (net of subsidies) on intermediate
+use $T_{\mathrm{int},i}$. Two accounting identities hold for every sector. Along a row,
+domestic output equals intermediate and final use; down a column, revenue
+equals the cost of intermediate inputs (domestic, imported and taxes) plus
+value added:
+\begin{align}
+p_u y_u &= \sum_{j=1}^N p_u x_{uj} + p_u z_u,
+\label{eq:io-row}\\
+p_i y_i &= \sum_{u=1}^N p_u x_{ui} + M_{\mathrm{int},i} + T_{\mathrm{int},i} + v_i.
+\label{eq:io-column}
+\end{align}
+Dividing a column by sector revenue turns the table into cost shares: the
+factor share $\alpha_i = v_i/(p_i y_i)$, so that $1-\alpha_i$ is the share of the full
+intermediate bill; its domestic component is $TC_i = \sum_{u} p_{u}x_{ui}$, which gives the input shares $\Omega_{iu} = p_u x_{ui}/TC_i$. Household consumption shares $\beta_u$ follow in the same way from the final-use columns. In the model only the domestic part of the costs $\sum_u p_u x_{ui}$ is demand
+for domestic goods; $M_{\mathrm{int},i}$ and $T_{\mathrm{int},i}$ are booked as explicit leaks (Appendix~\ref{app:abill}). The step from the source table to these shares is documented in Appendix~\ref{app:pipeline}.
+
+The table describes the economy at one point in time: input shares are fixed at baseline, and the table itself says nothing about how they respond when prices or demand change. That response is supplied by the optimization problems discussed below.
+
+\subsection{The optimization problems}\label{subsec:optimization}
+
+On the production side each sector aggregates atomistic competitive firms that share a common constant-returns technology $\Phi_i$ in labor and intermediate inputs. Labor is the only primary factor: $L_i$ stands for the composite of all primary inputs, so the whole of value added $v_i$ --- compensation of employees, but also depreciation, the operating surplus and other net taxes on production --- accrues to it, and $\alpha_i$ is the full value-added share. We nevertheless read changes in $L_i$ as employment changes: labor is the only factor, so the index moves with the hours it embodies. Given prices $p$, its wage $w_i$ and output $y_i$, these firms aim to minimize cost:
+\begin{equation}
+\begin{aligned}
+\min_{L_i,\,x_{1i},\ldots,x_{Ni}} \;& w_i L_i + \sum_{u=1}^N p_u x_{ui} + M_{\mathrm{int},i} + T_{\mathrm{int},i}
+\\
+&\text{s.t.} \qquad \Phi_i(L_i, x_{1i},\ldots,x_{Ni}; A_i^{H}) \geq y_i,
+\end{aligned}
+\label{eq:cost-min}
+\end{equation}
+where $A_i^{H}$ is Hicks-neutral productivity and $A^{H}=(A_i^{H})_{i=1}^N$ its sectoral vector. The expenditure $\sum_u p_u x_{ui}$ covers domestic intermediate inputs only, whereas the firm's full intermediate bill also includes imported inputs and product taxes. Imported intermediates and product taxes enter in fixed proportion to the domestic input composite and are valued at its price index (Appendix~\ref{app:abill}). The domestic fraction of the full intermediate bill is $a_i/(1-\alpha_i)$, where $a_i$ is the domestic intermediate share of sector revenue in the source table.
+
+With a unit cost $c_i$, constant returns imply a total cost
+$c_i(p,w_i;A_i^{H})\,y_i$, and perfect competition
+equates price and unit cost, $p_i = c_i(p,w_i;A_i^{H})$. Input demands follow
+from Shephard's lemma, $L_i = y_i\,\partial c_i/\partial w_i$ and
+$x_{ui} = y_i\,\bigl(a_i/(1-\alpha_i)\bigr)\,\partial c_i/\partial p_u$.
+We take $\Phi_i$ to be a nested CES (elasticity $\varepsilon$ between labor and
+the intermediate composite, $\theta$ among intermediates). We choose this functional form because it sits comfortably between two paradigmatic conceptions of production -- the inflexible, recipe-based Leontief production and the more adaptive Cobb-Douglas production function where substitution is governed by marginal productivity. Formally, the nested CES technology approaches Leontief as $(\varepsilon,\theta)\to(0,0)$ from above, and Cobb--Douglas as $(\varepsilon,\theta)\to(1,1)$.  In our application, we set $\varepsilon = 0.5$ for the elasticity between labor and the intermediate composite and $\theta = 0.5$ for the elasticity among intermediates, so both nests are gross complements.
+
+On the consumption side, a representative household maximizes utility given its consumption expenditure $E^h$:
+\begin{equation}
+\max_{c^h} \; U(c^h)
+\qquad \text{s.t.} \qquad \sum_{i=1}^N p_i c_i^h \leq E^h.
+\label{eq:utility-max}
+\end{equation}
+We represent $U$ by a CES function with elasticity $\sigma = 0.9$, the reference value at which the welfare measures are evaluated in what follows.\footnote{One qualification applies on the model side: the Leontief corner solution has a consumption block of fixed proportions, but its welfare is still evaluated at the reference $\sigma = 0.9$.}
+The corresponding consumer price index (CPI), $\mathcal{P}(p) = (\sum_i \beta_i p_i^{1-\sigma})^{1/(1-\sigma)}$, measures the expenditure required to purchase one unit of the household's consumption composite. We use it to express wages and household expenditure in consumption units and choose it as the numeraire, $\mathcal{P}(p)=1$, in the flexible wage closures.  In the wage-pinned closures (the employment-adjustment and Leontief columns) we normalize the common money wage to $w=1$.
+
+Because the closure fixes the numeraire, a nominal price level --- and any inflation rate read off it --- is not comparable across closures: where the consumption price index is the numeraire (the three flexible-wage closures) its change is zero by construction, and where the money wage is pinned (the employment-adjustment and Leontief closures) prices are expressed in units of the wage. A relative price is comparable, because it is invariant to that normalisation, and the relative price that carries the results is the real consumption wage, i.e.\ the purchasing power of a unit of employment. Formally, $\omega = \sum_i w_i L_i/(\mathcal{P}\sum_i L_i)$ is the wage bill per unit of employment, deflated by the CPI --- equivalently the employment-weighted mean money wage in consumption units. It is the same statistic in every closure and is computed by the same expression: where a common wage exists it collapses to $w/\mathcal{P}$, and where wages are sectoral it is their employment-weighted mean. Because the baseline normalises $w_0=\mathcal{P}_0=1$, the change reported in Table~\ref{tab:results-matrix} is $\Delta\omega = w/\mathcal{P}-1$ wherever a common wage exists.\footnote{What differs is only the mechanism: in the wage-pinned closures the entire adjustment falls on consumer prices, $\omega/\omega_0 = \mathcal{P}_0/\mathcal{P}$ exactly, while in the flexible-wage closures the money wage can move as well.} Together with employment, $\omega$ gives the real wage bill, $\sum_i w_i L_i/\mathcal{P} = \omega L$. It covers wage income only, not total household resources, which also include distributed profits and transfers and are captured by the welfare measures of Section~\ref{subsec:welfare}. Section~\ref{sec:beyond-demand-only} turns to the sectoral dispersion of prices.
+
+Household expenditure is a fixed share of after-tax resources, $E^h=(1-s)E$ with $E=(1-\tau)\sum_i w_i L_i+F$, where $\tau$ is the wage-income tax rate, $F$ the net external transfer and $s$ the calibrated saving rate (Appendix~\ref{app:pipeline}); saving $sE$ leaks to the external account.
+Where the program is booked externally rather than carried by households (F1) or by taxes (F2), its current-price cost enters the external account as $B_{\mathrm{gov}}$, which, together with $F$, gives the net external position $\Delta D = F + B_{\mathrm{gov}}$.
+
+In line with standard reasoning, we calibrate the CES functions by equating the measured consumption ($\beta_u$) and income shares ($\alpha_i$, $\Omega_{iu}$) with the imposed weights so that the current allocation represents an optimum. In other words, with baseline prices normalized to one, the solutions to~\eqref{eq:cost-min} and~\eqref{eq:utility-max} then reproduce the measurements, and with them the sectoral gross outputs $\lambda_i$, i.e., the Domar weights. This result holds regardless of the chosen production elasticities ($\varepsilon$, $\theta$) and will move with $\sigma$ only once prices move away from the baseline. In equilibrium, output must meet intermediate and final demand in every sector: the row identity~\eqref{eq:io-row}, which holds in the table by construction, becomes a market-clearing condition that prices must restore after a shock.
+
+\subsection{The welfare measure}\label{subsec:welfare}
+
+The approach above gives an estimate for \emph{Real GDP} based on inspecting
+the wage bill $\sum_i w_i L_i$, which equals aggregate value added because labor is the only primary factor (Section~\ref{subsec:optimization}). For scenarios with price changes the wage bill is deflated to express it at constant prices.\footnote{Specifically, we use a seven-component T\"ornqvist price index of final demand (consumption, government purchases and the program, investment, exports, and three leaks: the import content of final demand and the imported intermediates and product taxes booked in Appendix~\ref{app:abill}). This index deflates real GDP only; the results tables report the numeraire-invariant price statistics introduced above, not this index.} However, under a demand-only shock every price is pinned at its baseline value in the majority of the scenarios captured by Table~\ref{tab:results-matrix}. In these cases the deflator is exactly one and real GDP moves with the wage bill $w\sum_i L_i$ alone. 
+
+However, real GDP measures how much is produced, not how well the household fares. Different assumptions on the valuation of this output can be made and  such assumptions often represent different theoretical viewpoints or normative stances. 
+
+A conventional approach for our problem would be to employ a \emph{T\"ornqvist welfare index}, that compares household consumption bundle against its baseline.  In practical terms this measure of welfare will be rather sensitive to the financial closure applied. Specifically, any closure that reallocates spending from the private to the public sector -- i.e., closures F2 and F3 for the scenarios with constrained factor supply and closure F2 for scenarios with flexible quantities -- will mechanically show a negative impact on consumption as expenditures in the public sector do not contribute to welfare per definition. While internally consistent, this feature challenges the validity of the \emph{T\"ornqvist welfare index} for the case of a transformational stimulus, as it does no harm to assume that public and private spending would supply a quite similar and comparable bundle of goods. 
+
+Alternatively, and because the representative household has homothetic CES preferences, the welfare assessment could directly honor this assumption by employing an \emph{exact} money-metric assessment of welfare change: with the expenditure function $e(p,u)=u\,\mathcal{P}(p)$, the change in real consumption expenditure $E^h/\mathcal{P}(p)$ is the consumption-equivalent (equivalent variation) of the shock. In the flexible-wage closures, where $\mathcal{P}(p)=1$, this measure is simply the change in after-tax, post-saving household resources $E^h$.  It differs from a pure quantity index by taking the imposed utility function seriously.
+% Alternative Idee für FN(?): "A fixed-weight index equals this measure only where the valued bundle grows proportionally. For the household's own bundle this fails only when relative prices move; at pinned prices it fails only if the programme is added to the bundle (see below)."
+While it can be justified as an alternative baseline choice for the valuation algorithm on this basis, it also comes with a built-in status quo bias as the current composition of final consumption is deemed optimal. Also, in its standard form this valuation is still only focused on private expenditure only.
+
+Important variations of these base approaches can be obtained when shifting the definition of what, exactly, is valued by the welfare index. One option is $W_D$, the quantity index of private and public demand at baseline prices, covering household consumption, baseline government purchases and the spending program. Relative to $W_C$, this changes both bundle coverage and the aggregation formula.\footnote{Public demand is exogenous in this framework rather than chosen by an optimizing agent, so valuing it at all is a stance and not an implication of the model. We make this stance explicit by letting the valued bundle be $c^h+\lambda^{G}\,(g^G+g)$, with $c^h$ the household purchases of Equation~\eqref{eq:utility-max} and $\lambda^{G}$ the weight on public relative to private absorption. Throughout we set $\lambda^{G}=1$ --- public spending is valued at cost, as in the national accounts --- and $\lambda^{G}=0$ would return the pure consumption measure as a check.} 
+
+A second option is to include leisure as a standalone variable that determines social welfare jointly with economic output. And, indeed, the options above are not only silent on public expenditure but also on the disutility of the additional work, which matters for all closures where employment absorbs the shock.
+
+
+
+
